@@ -1,6 +1,6 @@
 import React from 'react';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   return (
@@ -35,9 +35,9 @@ const LoginForm = () => {
         <Input className="input-form" type="password" placeholder="Password" />
       </Form.Item>
       <Form.Item>
-        <a className="login-form-forgot" href="">
+        <Link className="login-form-forgot" to="">
           Forgot password?
-        </a>
+        </Link>
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">

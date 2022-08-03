@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { LANDING_BTN_TEXT, LANDING_DESC, LANDING_TITLE } from 'data/strings';
 import './MicroJob.css';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const { Title, Text } = Typography;
 
 const MicroJob = () => {

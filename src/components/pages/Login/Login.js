@@ -4,7 +4,7 @@ import { LOGIN_BG_TEXT } from 'data/strings';
 import './Login.css';
 import LoginForm from './LoginForm';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const { Title } = Typography;
 
 const Login = () => {
