@@ -24,17 +24,17 @@ const Landing = () => {
           <Card id="card-4" />
           <div id="content-grid">
             <Row>
-              <Col lg={{ span: 6, offset: 2 }}>
+              <Col xs={{ span: 16, offset: 3 }} lg={{ span: 6, offset: 2 }}>
                 <Title level={1}>{LANDING_TITLE}</Title>
               </Col>
             </Row>
             <Row className="mb-1">
-              <Col lg={{ span: 6, offset: 2 }}>
+              <Col xs={{ span: 16, offset: 3 }} lg={{ span: 6, offset: 2 }}>
                 <Text>{LANDING_DESC}</Text>
               </Col>
             </Row>
             <Row>
-              <Col lg={{ span: 4, offset: 2 }}>
+              <Col xs={{ span: 15, offset: 3 }} lg={{ span: 4, offset: 2 }}>
                 <Link to="/sign-in">
                   <Button size="large" className="call-to-action-btn">
                     {LANDING_BTN_TEXT}
