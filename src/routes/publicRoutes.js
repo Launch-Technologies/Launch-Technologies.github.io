@@ -1,4 +1,4 @@
-import { Landing, NotFound } from 'components/pages';
+import { Landing, Login, NotFound } from 'components/pages';
 
 const publicRoutes = [
   {
@@ -6,16 +6,16 @@ const publicRoutes = [
     exact: true,
     element: <Landing />,
   },
-  // {
-  //   path: "/login",
-  //   exact: true,
-  //   render: () => <Login></Login>,
-  // },
-  // {
-  //   path: "/signup",
-  //   exact: true,
-  //   render: () => <SignUp></SignUp>,
-  // }
+  {
+    path: '/login',
+    exact: true,
+    element: <Login />,
+  },
+  {
+    path: '/signup',
+    exact: true,
+    element: <Login />,
+  },
 ];
 
 const notFoundRoute = [

@@ -1,21 +1,11 @@
-import { Landing } from '../components/pages';
+import { MicroJob } from 'components/pages';
 
 const protectedRoutes = [
   {
-    path: '/',
+    path: '/micro-jobs',
     exact: true,
-    element: <Landing />,
+    element: <MicroJob />,
   },
-  // {
-  //   path: "/login",
-  //   exact: true,
-  //   render: () => <Login></Login>,
-  // },
-  // {
-  //   path: "/signup",
-  //   exact: true,
-  //   render: () => <SignUp></SignUp>,
-  // }
 ];
 
 export { protectedRoutes };

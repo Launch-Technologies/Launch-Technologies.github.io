@@ -35,7 +35,7 @@ const Landing = () => {
             </Row>
             <Row>
               <Col xs={{ span: 15, offset: 3 }} lg={{ span: 4, offset: 2 }}>
-                <Link to="/sign-in">
+                <Link to="/login">
                   <Button size="large" className="call-to-action-btn">
                     {LANDING_BTN_TEXT}
                     <ArrowRightOutlined className="call-to-action-icon" />
