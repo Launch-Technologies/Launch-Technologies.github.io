@@ -1,0 +1,43 @@
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "requirePragma": false,
+  "insertPragma": false,
+  "proseWrap": "preserve",
+  "htmlWhitespaceSensitivity": "css",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "*.svg",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ],
+  "importOrder": [
+    "^react$",
+    "^next/.+$",
+    "^@chakra-ui/react$",
+    "^@chakra-ui/.+$",
+    "<THIRD_PARTY_MODULES>",
+    "^stores/.+$",
+    "^components/.+$",
+    "^hooks/.+$",
+    "^utils/.+$",
+    "^data/.+$",
+    "^styles/.+$",
+    "^\\.?\\./.+$"
+  ],
+  "importOrderSortSpecifiers": true,
+  "importOrderSeparation": false,
+  "importOrderCaseInsensitive": false,
+  "importOrderParserPlugins": ["typescript", "jsx"]
+}
