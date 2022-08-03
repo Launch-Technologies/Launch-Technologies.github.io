@@ -1,4 +1,4 @@
-import { Landing, NotFound } from '../components/pages';
+import { Landing, NotFound } from 'components/pages';
 
 const publicRoutes = [
   {

@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
+import { LANDING_BTN_TEXT, LANDING_DESC, LANDING_TITLE } from 'data/strings';
 import './Landing.css';
 
 const { Header, Content } = Layout;
@@ -24,23 +25,19 @@ const Landing = () => {
           <div id="content-grid">
             <Row>
               <Col lg={{ span: 6, offset: 2 }}>
-                <Title level={1}>Getting your every task to new heights.</Title>
+                <Title level={1}>{LANDING_TITLE}</Title>
               </Col>
             </Row>
             <Row className="mb-1">
               <Col lg={{ span: 6, offset: 2 }}>
-                <Text>
-                  launch.api completes tasks essential for your business to
-                  thrive. This is a sample description of launch.api, please
-                  modify to your liking, Paul.
-                </Text>
+                <Text>{LANDING_DESC}</Text>
               </Col>
             </Row>
             <Row>
               <Col lg={{ span: 4, offset: 2 }}>
                 <Link to="/sign-in">
                   <Button size="large" className="call-to-action-btn">
-                    Post a job now
+                    {LANDING_BTN_TEXT}
                     <ArrowRightOutlined className="call-to-action-icon" />
                   </Button>
                 </Link>
