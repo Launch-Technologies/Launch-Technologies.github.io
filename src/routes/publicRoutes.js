@@ -1,4 +1,4 @@
-import { Landing, Login, NotFound } from 'components/pages';
+import { Landing, Login, NotFound, SignUp } from 'components/pages';
 
 const publicRoutes = [
   {
@@ -7,14 +7,14 @@ const publicRoutes = [
     element: <Landing />,
   },
   {
-    path: '/login',
+    path: '/sign-in',
     exact: true,
     element: <Login />,
   },
   {
-    path: '/signup',
+    path: '/sign-up',
     exact: true,
-    element: <Login />,
+    element: <SignUp />,
   },
 ];
 

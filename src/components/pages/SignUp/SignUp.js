@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { Button, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { LOGIN_BG_TEXT } from 'data/strings';
-import styles from './Login.module.css';
-import LoginForm from './LoginForm';
+import styles from './SignUp.module.css';
+import SignUpForm from './SignUpForm';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
-const Login = () => {
+const SignUp = () => {
   const [form, setform] = useState('');
 
   const Forms = () => {
     switch (form) {
       case 'email':
-        return <LoginForm setform={setform} />;
+        return <SignUpForm setform={setform} />;
 
       default:
         return (
@@ -29,7 +29,7 @@ const Login = () => {
                 alt="google-logo"
                 className={styles.anticon}
               />
-              Sign in with Google
+              Sign Up with Google
             </Button>
             <Button
               block
@@ -41,7 +41,7 @@ const Login = () => {
                 alt="email-logo"
                 className={styles.anticon}
               />
-              Sign in with Email
+              Sign Up with Email
             </Button>
           </>
         );
@@ -58,11 +58,12 @@ const Login = () => {
             lg={{ span: 12 }}
           >
             <section>
-              <Title level={1}>Sign In</Title>
+              <Title level={1}>Create an Account</Title>
               <Forms />
             </section>
             <div className={styles.footer}>
-              New to JobLaunch? <Link to="/sign-up">Create an Account.</Link>
+              Already have an account?{' '}
+              <Link to="/sign-in">Back to Sign In</Link>
             </div>
           </Col>
           <Col
@@ -86,4 +87,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

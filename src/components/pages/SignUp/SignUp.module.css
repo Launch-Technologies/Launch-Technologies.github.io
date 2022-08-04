@@ -1,26 +1,26 @@
-.content-login {
+.content_login {
   background: #ffffff;
   height: 100vh;
   padding: 14;
   margin: 0;
 }
 
-.content-row {
+.content_row {
   height: 100vh;
 }
 
-.content-row .ant-col {
+.content_row .content_left,
+.content_row .content_right {
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 
-.content-left {
-  display: inherit;
+.content_left {
   text-align: center;
 }
 
-.content-right {
+.content_right {
   background-image: linear-gradient(
     to right,
     rgba(193, 229, 255, 1),
@@ -28,15 +28,15 @@
   );
   margin: 0 auto;
 }
-.content-right img {
+.content_right img {
   width: 417px;
 }
-.content-right img {
+.content_right img {
   width: 417px;
 }
 
 /* CHOOSE FORM */
-.sign-in-btn-choose-form {
+.sign_in_btn_choose_form {
   border: 1px solid #000000;
   border-radius: 10px;
   font-size: 23px;
@@ -44,42 +44,49 @@
   width: 70% !important;
   margin-bottom: 1em;
 }
-.sign-in-btn-choose-form .anticon {
+.sign_in_btn_choose_form .anticon {
   float: left;
   height: 40px;
 }
 
 /* LOGIN-FORM */
-.login-form {
+.login_form {
   width: 30vw;
 }
-.input-form {
+.input_form {
   width: 401px;
   height: 60px;
   background: #eeeeee;
   border-radius: 10px;
+  font-size: 1.5em;
 }
-.login-form-back-btn {
+.input_form input {
+  background: #eeeeee;
+  font-size: 1em;
+}
+.login_form_back_btn {
   display: block;
   float: left;
+  margin-left: 4em;
   color: #000000;
   padding-left: 0;
   padding-bottom: 0;
 }
-.input-form.ant-input {
+.input_form.ant-input {
   background-color: #eeeeee;
   font-size: 21px !important;
   margin-left: 0.5em !important;
 }
-.login-form-forgot {
+
+.login_form_forgot {
   display: block;
   text-align: center;
   font-size: 21px !important;
 }
-.ant-col-rtl .login-form-forgot {
+.ant-col-rtl .login_form_forgot {
   float: left;
 }
-.login-form-button {
+.login_form_button {
   width: 189px;
   height: 57px;
   font-size: 26px;
@@ -89,4 +96,12 @@
   border-radius: 10px;
   display: block;
   text-align: center;
+  margin: 0 auto;
+}
+
+.footer {
+  display: block;
+  position: absolute;
+  bottom: 1em;
+  font-size: 1.4em;
 }

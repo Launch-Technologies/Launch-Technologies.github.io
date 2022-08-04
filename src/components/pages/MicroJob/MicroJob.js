@@ -3,7 +3,7 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { Button, Card, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { LANDING_BTN_TEXT, LANDING_DESC, LANDING_TITLE } from 'data/strings';
-import './MicroJob.css';
+import './MicroJob.module.css';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
