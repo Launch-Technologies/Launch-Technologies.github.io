@@ -18,7 +18,7 @@ const Landing = () => {
       </Header>
       <Layout>
         <Content className={styles.site_layout_background}>
-          <Card id="card-1"></Card>
+          <Card id="card-1" />
           <Card id="card-2" />
           <Card id="card-3" />
           <Card id="card-4" />

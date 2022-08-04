@@ -1,0 +1,53 @@
+.logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  font-size: 1.3em;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+.sider_background {
+  background-image: url('../../../../public/assets/img/sidebar.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+:global #dashboard_layout .ant-menu li .ant-menu-submenu-title, :global .ant-menu-submenu-arrow{
+  color: white !important;
+  font-size: large;
+}
+
+:global #dashboard_layout  .ant-menu-sub.ant-menu-inline {
+  background: transparent;
+}
+
+:global #dashboard_layout .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #F5BE41;
+}
+
+:global #dashboard_layout .ant-menu-submenu-title:hover, :global #dashboard_layout .ant-menu li {
+  color: white;
+}
+
+:global .top-menu *{
+  color: black;
+  font-size: medium
+}
+
+.site_layout_background {
+  background: #fff;
+  background-image: url('../../../../public/assets/img/triangle-mosaic.png');
+  background-size: 50% 100%;
+}
+
+.header {
+  background: #fff;
+  position: fixed;
+  width: 100vw;
+  box-shadow: 0px 2px 10px 0px #00000033;
+  z-index: 10;
+}

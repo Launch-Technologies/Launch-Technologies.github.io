@@ -1,10 +1,12 @@
 import React from 'react';
 import { CaretLeftOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 
 const LoginForm = ({ setform }) => {
+  const navigate = useNavigate();
+
   return (
     <Form
       name="normal_login"
@@ -64,6 +66,7 @@ const LoginForm = ({ setform }) => {
           type="primary"
           htmlType="submit"
           className={styles.login_form_button}
+          onClick={() => navigate('/dashboard')}
         >
           Sign In
         </Button>
