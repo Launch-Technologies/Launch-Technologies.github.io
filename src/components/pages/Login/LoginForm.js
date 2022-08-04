@@ -1,8 +1,9 @@
 import React from 'react';
+import { CaretLeftOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = ({ setform }) => {
   return (
     <Form
       name="normal_login"
@@ -12,6 +13,17 @@ const LoginForm = () => {
       }}
       onFinish={true}
     >
+      <Button
+        type="link"
+        className="login-form-back-btn"
+        onClick={() => setform('')}
+        icon={
+          <CaretLeftOutlined style={{ fontSize: '20px', paddingTop: '10px' }} />
+        }
+      >
+        back
+      </Button>
+      <Form.Item></Form.Item>
       <Form.Item
         name="email"
         rules={[

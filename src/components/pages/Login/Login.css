@@ -28,6 +28,26 @@
   );
   margin: 0 auto;
 }
+.content-right img {
+  width: 417px;
+}
+.content-right img {
+  width: 417px;
+}
+
+/* CHOOSE FORM */
+.sign-in-btn-choose-form {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  font-size: 23px;
+  height: 60px;
+  width: 70% !important;
+  margin-bottom: 1em;
+}
+.sign-in-btn-choose-form .anticon {
+  float: left;
+  height: 40px;
+}
 
 /* LOGIN-FORM */
 .login-form {
@@ -38,6 +58,13 @@
   height: 60px;
   background: #eeeeee;
   border-radius: 10px;
+}
+.login-form-back-btn {
+  display: block;
+  float: left;
+  color: #000000;
+  padding-left: 0;
+  padding-bottom: 0;
 }
 .input-form.ant-input {
   background-color: #eeeeee;
