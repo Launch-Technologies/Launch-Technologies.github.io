@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRightOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Layout, Row, Typography } from 'antd';
+import { Button, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { LANDING_BTN_TEXT, LANDING_DESC, LANDING_TITLE } from 'data/strings';
 import './Landing.scoped.css';

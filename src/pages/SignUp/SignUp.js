@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { Button, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { LOGIN_BG_TEXT } from 'data/strings';
-import './Login.scoped.css';
-import LoginForm from './LoginForm';
+import './SignUp.scoped.css';
+import SignUpForm from 'components/Forms/SignUpForm';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
-const Login = () => {
+const SignUp = () => {
   const [form, setform] = useState('');
 
   const Forms = () => {
     switch (form) {
       case 'email':
-        return <LoginForm setform={setform} />;
+        return <SignUpForm setform={setform} />;
 
       default:
         return (
@@ -30,7 +30,7 @@ const Login = () => {
                   alt="google-logo"
                   className="anticon"
                 />
-                Sign in with Google
+                Sign Up with Google
               </Button>
               <Button
                 block
@@ -42,7 +42,7 @@ const Login = () => {
                   alt="email-logo"
                   className="anticon"
                 />
-                Sign in with Email
+                Sign Up with Email
               </Button>
             </Col>
           </Row>
@@ -53,18 +53,19 @@ const Login = () => {
   return (
     <Layout>
       <Content className="content_login">
-        <Row className="content_row" justify='' align='middle'>
+        <Row className="content_row">
           <Col
             className="content_left"
             xs={{ span: 24 }}
             lg={{ span: 12 }}
           >
             <section>
-              <Title level={1}>Sign In</Title>
+              <Title level={1}>Create an Account</Title>
               <Forms />
             </section>
             <div className="footer">
-              New to Launch? <Link to="/sign-up">Create an Account.</Link>
+              Already have an account?{' '}
+              <Link to="/sign-in">Back to Sign In</Link>
             </div>
           </Col>
           <Col
@@ -82,10 +83,10 @@ const Login = () => {
               </Title>
             </section>
           </Col>
-        </Row >
-      </Content >
-    </Layout >
+        </Row>
+      </Content>
+    </Layout>
   );
 };
 
-export default Login;
+export default SignUp;

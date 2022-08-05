@@ -1,12 +1,11 @@
 import React from 'react';
 import { CaretLeftOutlined } from '@ant-design/icons';
 import { Row, Col, Button, Form, Input } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLogin } from 'components/hooks/useLogin';
-import './Login.scoped.css';
+import 'pages/Login/Login.scoped.css';
 
 const LoginForm = ({ setform }) => {
-  const navigate = useNavigate();
   const { email, password, changeEmail, changePassword, onLogin, errorMsg } =
     useLogin();
 
@@ -79,6 +78,7 @@ const LoginForm = ({ setform }) => {
             >
               Sign In
             </Button>
+            {errorMsg}
           </Form.Item>
         </Form>
       </Col>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CaretLeftOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Row, Col } from 'antd';
-import './SignUp.scoped.css';
+import 'pages/SignUp/SignUp.scoped.css';
 
 const SignUpForm = ({ setform }) => {
   return (

@@ -1,4 +1,4 @@
-import { Dashboard, MicroJob } from 'components/pages';
+import { Dashboard, MicroJob } from 'pages';
 
 const protectedRoutes = [
   {
