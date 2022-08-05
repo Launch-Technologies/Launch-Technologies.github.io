@@ -1,0 +1,24 @@
+.search_input {
+  background: #FFFFFF;
+  border: 0.5px solid #C4C4C4;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: .7em;
+}
+
+.sort_options>>>.ant-select-selector {
+  border: 0.5px solid #C4C4C4;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.btn_add_new {
+  /* border: 0.5px solid #C4C4C4; */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #f5be40;
+}
+
+.row_content {
+  margin: 1em 0
+}

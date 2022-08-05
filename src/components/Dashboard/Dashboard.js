@@ -14,9 +14,10 @@ const items2 = [LaptopOutlined].map((icon, index) => {
     key: `MicroJobs`,
     icon: React.createElement(icon),
     label: `MicroJobs`,
-    children: ['Lists', 'Add New', 'Progress Tracker', 'Submissions'].map(
+    children: ['Progress Tracker', 'Submissions'].map(
       (_, j) => {
         const subKey = index * 4 + j + 1;
+        console.log("🚀 ~ subKey", subKey)
         return {
           key: subKey,
           label: _,
@@ -27,7 +28,7 @@ const items2 = [LaptopOutlined].map((icon, index) => {
 });
 
 const Dashboard = ({ children }) => (
-  <Layout id="dashboard_layout">
+  <Layout hasSider id="dashboard_layout">
     <Header className="header">
       <div className="logo">
         <Link to="/">Launch</Link>
@@ -51,6 +52,7 @@ const Dashboard = ({ children }) => (
           console.log(collapsed, type);
         }}
         width={250}
+        className='sider'
         style={{ paddingTop: 64, height: '100vh' }}
       >
         <Menu
@@ -58,13 +60,12 @@ const Dashboard = ({ children }) => (
           mode="inline"
           // theme='dark'
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          defaultOpenKeys={["MicroJobs"]}
           style={{
             height: '100%',
             borderRight: 0,
           }}
           items={items2}
-          collapsed={false}
         />
       </Sider>
       <Layout

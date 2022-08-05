@@ -11,6 +11,15 @@
   margin: 16px 0 16px 24px;
 }
 
+.sider {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
 .sider_background {
   background-image: url('../../../public/assets/img/sidebar.png');
   background-repeat: no-repeat;
@@ -53,8 +62,13 @@
 }
 
 .site_layout_background {
+  margin-left: 250px !important;
   background: #fff;
   background-size: 50% 100%;
+  border: 1px solid #E7E1E1;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  min-height: 90vh !important;
 }
 
 .header {

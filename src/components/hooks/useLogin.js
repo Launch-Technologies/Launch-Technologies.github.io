@@ -27,7 +27,7 @@ export const useLogin = () => {
       });
       clearForm();
       userState.setUserData(token.user);
-      navigate('/dashboard');
+      navigate('/micro-jobs');
       return true;
     } else {
       setErrMsg('Not Authorized');
