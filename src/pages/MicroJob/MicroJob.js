@@ -1,54 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Input, Select, Button } from 'antd';
 import './MicroJob.scoped.css';
 import Dashboard from 'components/Dashboard/Dashboard';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import Card from 'components/Cards/Card';
+import NewMicroJobModal from 'components/Modals/NewMicroJobModal';
 
 const { Option } = Select;
 const MicroJob = () => {
+  const [showForm, setshowForm] = useState(false)
   const microjobs = [
     {
       id: 1,
       img: "/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png",
-      name: "mj1",
+      name: "Mj1",
       btn_url: "/submissions",
-      btn_text: "continue"
+      btn_text: "Continue"
     },
     {
       id: 2,
       img: "/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png",
-      name: "mj1",
+      name: "Mj1",
       btn_url: "/submissions",
-      btn_text: "continue"
+      btn_text: "Continue"
     },
     {
       id: 3,
       img: "/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png",
-      name: "mj1dsafdska",
+      name: "Mj1dsafdska",
       btn_url: "/submissions",
-      btn_text: "continue"
+      btn_text: "Continue"
     },
     {
       id: 4,
       img: "/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png",
-      name: "mj1",
+      name: "Mj1",
       btn_url: "/submissions",
-      btn_text: "continue"
+      btn_text: "Continue"
     },
     {
       id: 5,
       img: "/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png",
-      name: "mj1",
+      name: "Mj1",
       btn_url: "/submissions",
-      btn_text: "continue"
+      btn_text: "Continue"
     },
     {
       id: 6,
       img: "/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png",
-      name: "mj1",
+      name: "Mj1",
       btn_url: "/submissions",
-      btn_text: "continue"
+      btn_text: "Continue"
     }
   ]
   return (
@@ -57,12 +59,13 @@ const MicroJob = () => {
         <Row justify='space-between' align='middle'>
           <Col
             // xs={{ span: 18 }} 
-            lg={{ span: 15 }}>
-            <Input placeholder='search for a micro-jobs' className='search_input'></Input>
+            lg={{ span: 13 }}>
+            <Input placeholder='Search for a micro-jobs' className='search_input'></Input>
           </Col>
           <Col
+            align='end'
             // xs={{ span: 18 }} 
-            lg={{ span: 1 }}>
+            lg={{ span: 2 }}>
             Sort By:
           </Col>
           <Col
@@ -81,19 +84,20 @@ const MicroJob = () => {
           <Col
             // xs={{ span: 18 }} 
             lg={{ span: 3 }}>
-            <Button size='large' block className="btn_add_new" icon={<PlusCircleOutlined />}>Add New</Button>
+            <Button size='large' onClick={() => setshowForm(true)} block className="btn_add_new" icon={<PlusCircleOutlined />}>Add New</Button>
           </Col>
         </Row>
-        <Row align='middle' className='row_content'>
+        <Row align='middle' className='row_content' gutter={[25, 25]}>
           {microjobs.map(e => {
             return (
-              <Col lg={{ span: 6 }} key={e.id}>
+              <Col xl={{ span: 8 }} md={{ span: 8 }} xs={{ span: 12 }} key={e.id}>
                 <Card {...e} />
               </Col>
             );
           })}
         </Row>
       </section>
+      <NewMicroJobModal visible={showForm} setshowForm={setshowForm} />
     </Dashboard>
   );
 };

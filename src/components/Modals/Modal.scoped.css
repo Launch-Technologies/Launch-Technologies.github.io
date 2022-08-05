@@ -1,0 +1,30 @@
+.ant-modal-root>>>.ant-modal-body {
+  min-height: 300px !important;
+}
+
+.ant-modal-root>>>.ant-modal-content {
+  border-radius: 10px !important;
+}
+
+.ant-modal-root>>>.ant-modal-header {
+  height: 100px;
+  background: rgb(15, 28, 112);
+  margin: 0 auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.ant-modal-root>>>.ant-modal-close {
+  color: white;
+  font-size: 600;
+}
+
+.ant-modal-root>>>.ant-modal-title {
+  margin-top: 1em;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 22px;
+  color: white;
+  text-align: center;
+}
