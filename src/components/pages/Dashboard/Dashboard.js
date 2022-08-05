@@ -2,10 +2,10 @@ import React from 'react';
 import { LaptopOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
-import styles from './Dashboard.module.css';
+import './Dashboard.scoped.css';
 
 const { Header, Content, Sider } = Layout;
-const items1 = ['Microjobs', 'Cohorts', 'Events'].map((key) => ({
+const items1 = ['Microjobs', 'Events'].map((key) => ({
   key,
   label: `${key}`,
 }));
@@ -27,14 +27,14 @@ const items2 = [LaptopOutlined].map((icon, index) => {
 });
 
 const Dashboard = ({ children }) => (
-  <Layout id='dashboard_layout'>
-    <Header className={styles.header}>
-      <div className={styles.logo}>
+  <Layout id="dashboard_layout">
+    <Header className="header">
+      <div className="logo">
         <Link to="/">Launch</Link>
       </div>
       <Menu
         theme="light"
-        className='top-menu'
+        className="top-menu"
         mode="horizontal"
         defaultSelectedKeys={['2']}
         items={items1}
@@ -50,12 +50,13 @@ const Dashboard = ({ children }) => (
         onCollapse={(collapsed, type) => {
           console.log(collapsed, type);
         }}
-        width={200}
+        width={250}
         style={{ paddingTop: 64, height: '100vh' }}
-        >
+      >
         <Menu
-          className={styles.sider_background}
+          className="sider_background"
           mode="inline"
+          // theme='dark'
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           style={{
@@ -63,6 +64,7 @@ const Dashboard = ({ children }) => (
             borderRight: 0,
           }}
           items={items2}
+          collapsed={false}
         />
       </Sider>
       <Layout
@@ -71,7 +73,7 @@ const Dashboard = ({ children }) => (
         }}
       >
         <Content
-          className={styles.site_layout_background}
+          className="site_layout_background"
           style={{
             padding: 24,
             margin: 0,

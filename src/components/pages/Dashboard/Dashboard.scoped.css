@@ -10,37 +10,50 @@
   float: right;
   margin: 16px 0 16px 24px;
 }
+
 .sider_background {
   background-image: url('../../../../public/assets/img/sidebar.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
-:global #dashboard_layout .ant-menu li .ant-menu-submenu-title, :global .ant-menu-submenu-arrow{
+.sider_background>>>.ant-menu li .ant-menu-submenu-title,
+.sider_background>>>.ant-menu-submenu-arrow {
   color: white !important;
-  font-size: large;
+  font-size: 2em;
 }
 
-:global #dashboard_layout  .ant-menu-sub.ant-menu-inline {
+.sider_background>>>.ant-menu-sub.ant-menu-inline {
   background: transparent;
 }
 
-:global #dashboard_layout .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  background-color: #F5BE41;
-}
-
-:global #dashboard_layout .ant-menu-submenu-title:hover, :global #dashboard_layout .ant-menu li {
+.sider_background>>>.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #f5be41;
+  font-size: 1.2rem;
   color: white;
 }
 
-:global .top-menu *{
+.sider_background>>>.ant-menu-item {
+  padding-left: 1.5em !important;
+}
+
+.sider_background>>>.ant-menu {
+  padding-left: 0 !important;
+  color: white;
+}
+
+.sider_background>>>.ant-menu-submenu-title {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.top-menu>>>* {
   color: black;
-  font-size: medium
+  font-size: medium;
 }
 
 .site_layout_background {
   background: #fff;
-  background-image: url('../../../../public/assets/img/triangle-mosaic.png');
   background-size: 50% 100%;
 }
 

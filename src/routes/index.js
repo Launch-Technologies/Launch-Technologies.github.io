@@ -2,7 +2,7 @@ import { Route } from 'react-router-dom';
 import { protectedRoutes } from './protectedRoutes';
 import { notFoundRoute, publicRoutes } from './publicRoutes';
 
-const getRoutesBaseRoles = (isLogged, roles) => {
+const getRoutesBaseRoles = (isLogged) => {
   let routes = isLogged
     ? [...publicRoutes, ...protectedRoutes, ...notFoundRoute]
     : [...publicRoutes, ...notFoundRoute];

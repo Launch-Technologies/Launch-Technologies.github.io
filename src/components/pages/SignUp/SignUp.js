@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import { LOGIN_BG_TEXT } from 'data/strings';
-import styles from './SignUp.module.css';
+import './SignUp.scoped.css';
 import SignUpForm from './SignUpForm';
 
 const { Content } = Layout;
@@ -18,57 +18,59 @@ const SignUp = () => {
 
       default:
         return (
-          <>
-            <Button
-              block
-              className={styles.sign_in_btn_choose_form}
-              onClick={() => setform('google')}
-            >
-              <img
-                src="/assets/img/Google__G__Logo 1.png"
-                alt="google-logo"
-                className={styles.anticon}
-              />
-              Sign Up with Google
-            </Button>
-            <Button
-              block
-              className={styles.sign_in_btn_choose_form}
-              onClick={() => setform('email')}
-            >
-              <img
-                src="/assets/img/carbon_email.png"
-                alt="email-logo"
-                className={styles.anticon}
-              />
-              Sign Up with Email
-            </Button>
-          </>
+          <Row justify="center" align="middle">
+            <Col span={22}>
+              <Button
+                block
+                className="sign_in_btn_choose_form"
+                onClick={() => setform('google')}
+              >
+                <img
+                  src="/assets/img/Google__G__Logo 1.png"
+                  alt="google-logo"
+                  className="anticon"
+                />
+                Sign Up with Google
+              </Button>
+              <Button
+                block
+                className="sign_in_btn_choose_form"
+                onClick={() => setform('email')}
+              >
+                <img
+                  src="/assets/img/carbon_email.png"
+                  alt="email-logo"
+                  className="anticon"
+                />
+                Sign Up with Email
+              </Button>
+            </Col>
+          </Row>
         );
     }
   };
 
   return (
     <Layout>
-      <Content className={styles.content_login}>
-        <Row className={styles.content_row}>
+      <Content className="content_login">
+        <Row className="content_row">
           <Col
-            className={styles.content_left}
-            xs={{ span: 20 }}
+            className="content_left"
+            xs={{ span: 24 }}
             lg={{ span: 12 }}
           >
             <section>
               <Title level={1}>Create an Account</Title>
               <Forms />
             </section>
-            <div className={styles.footer}>
+            <div className="footer">
               Already have an account?{' '}
               <Link to="/sign-in">Back to Sign In</Link>
             </div>
           </Col>
           <Col
-            className={styles.content_right}
-            xs={{ span: 20 }}
+            className="content_right"
+            xs={{ span: 24 }}
             lg={{ span: 12 }}
           >
             <section>

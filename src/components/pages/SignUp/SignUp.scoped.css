@@ -6,7 +6,8 @@
 }
 
 .content_row {
-  height: 100vh;
+  /* height: 100vh; */
+  /* justify-content: center; */
 }
 
 .content_row .content_left,
@@ -14,23 +15,31 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .content_left {
   text-align: center;
 }
 
+
 .content_right {
-  background-image: linear-gradient(
-    to right,
-    rgba(193, 229, 255, 1),
-    rgba(136, 107, 255, 1)
-  );
+  background-image: linear-gradient(to right,
+      rgba(193, 229, 255, 1),
+      rgba(136, 107, 255, 1));
   margin: 0 auto;
 }
+
+@media (max-width: 991px) {
+  .content_right {
+    display: none !important;
+  }
+}
+
 .content_right img {
   width: 417px;
 }
+
 .content_right img {
   width: 417px;
 }
@@ -41,46 +50,50 @@
   border-radius: 10px;
   font-size: 23px;
   height: 60px;
-  width: 70% !important;
+  /* width: 70% !important; */
   margin-bottom: 1em;
 }
+
 .sign_in_btn_choose_form .anticon {
   float: left;
   height: 40px;
 }
 
 /* LOGIN-FORM */
-.login_form {
-  width: 30vw;
-}
 .input_form {
   width: 401px;
   height: 60px;
   background: #eeeeee;
   border-radius: 10px;
 }
-.login_form_back_btn {
+
+.signup_form_back_btn {
   display: block;
-  float: left;
-  margin-left: 4em;
+  margin-left: .5em;
   color: #000000;
-  padding-left: 0;
-  padding-bottom: 0;
 }
-.input_form.ant-input {
+
+.input_form.ant-input, .input_form.ant-input-password {
   background-color: #eeeeee;
   font-size: 21px !important;
   margin-left: 0.5em !important;
 }
-.login_form_forgot {
+
+.signup_form_forgot {
   display: block;
   text-align: center;
   font-size: 21px !important;
 }
-.ant-col-rtl .login_form_forgot {
+
+.ant-col-rtl .signup_form_forgot {
   float: left;
 }
-.login_form_button {
+
+.terms_policy_checkbox {
+  padding: 4px 15px !important;
+}
+
+.signup_form_button {
   width: 189px;
   height: 57px;
   font-size: 26px;
