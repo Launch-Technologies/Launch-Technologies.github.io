@@ -2,6 +2,7 @@ import React from 'react';
 import { LaptopOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
+import ProfileTab from 'components/Tab/ProfileTab';
 import './Dashboard.scoped.css';
 
 const { Header, Content, Sider } = Layout;
@@ -38,6 +39,9 @@ const Dashboard = ({ children }) => (
         defaultSelectedKeys={['2']}
         items={items1}
       />
+      <span className="user_header">
+        <ProfileTab />
+      </span>
     </Header>
     <Layout>
       <Sider
@@ -77,7 +81,7 @@ const Dashboard = ({ children }) => (
             padding: 24,
             margin: 0,
             minHeight: 280,
-            marginTop: 100,
+            marginTop: 90,
           }}
         >
           {children}
