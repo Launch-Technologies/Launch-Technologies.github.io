@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
+import SignUpForm from 'components/Forms/SignUpForm';
 import { LOGIN_BG_TEXT } from 'data/strings';
 import './SignUp.scoped.css';
-import SignUpForm from 'components/Forms/SignUpForm';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -54,11 +54,7 @@ const SignUp = () => {
     <Layout>
       <Content className="content_login">
         <Row className="content_row">
-          <Col
-            className="content_left"
-            xs={{ span: 24 }}
-            lg={{ span: 12 }}
-          >
+          <Col className="content_left" xs={{ span: 24 }} lg={{ span: 12 }}>
             <section>
               <Title level={1}>Create an Account</Title>
               <Forms />
@@ -68,11 +64,7 @@ const SignUp = () => {
               <Link to="/sign-in">Back to Sign In</Link>
             </div>
           </Col>
-          <Col
-            className="content_right"
-            xs={{ span: 24 }}
-            lg={{ span: 12 }}
-          >
+          <Col className="content_right" xs={{ span: 24 }} lg={{ span: 12 }}>
             <section>
               <img
                 src="/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png"

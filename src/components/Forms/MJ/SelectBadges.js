@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Form, Select } from 'antd';
 
 const SelectBadges = ({ form }) => {
   const OPTIONS = ['HTML', 'CSS', 'JAVASCRIPT'];
   const [selectedItems, setSelectedItems] = useState([]);
-  const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+  const filteredOptions = OPTIONS.filter((o) => !selectedItems.includes(o));
 
   return (
     <Form
@@ -32,7 +32,7 @@ const SelectBadges = ({ form }) => {
           onChange={setSelectedItems}
           style={{ width: '100%' }}
         >
-          {filteredOptions.map(item => (
+          {filteredOptions.map((item) => (
             <Select.Option key={item} value={item}>
               {item}
             </Select.Option>
@@ -40,7 +40,7 @@ const SelectBadges = ({ form }) => {
         </Select>
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-export default SelectBadges
+export default SelectBadges;

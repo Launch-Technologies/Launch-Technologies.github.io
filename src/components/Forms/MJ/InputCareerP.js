@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Form, Input } from 'antd';
 
 const inputCareerP = ({ form }) => {
-
   return (
     <Form
       form={form}
@@ -22,10 +21,14 @@ const inputCareerP = ({ form }) => {
           },
         ]}
       >
-        <Input.TextArea rows={4} placeholder="maximum length is 255" maxLength={255} />
+        <Input.TextArea
+          rows={4}
+          placeholder="maximum length is 255"
+          maxLength={255}
+        />
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-export default inputCareerP
+export default inputCareerP;

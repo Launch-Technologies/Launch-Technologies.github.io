@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Form, Input, Radio } from 'antd';
 
 const inputRenum = ({ form }) => {
-
   return (
     <Form
       form={form}
@@ -25,7 +24,7 @@ const inputRenum = ({ form }) => {
         <Input />
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-export default inputRenum
+export default inputRenum;

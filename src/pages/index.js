@@ -1,5 +1,5 @@
-import NotFound from './404';
 import Dashboard from '../components/Dashboard/Dashboard';
+import NotFound from './404';
 import Landing from './Landing/Landing';
 import Login from './Login/Login';
 import MicroJob from './MicroJob/MicroJob';

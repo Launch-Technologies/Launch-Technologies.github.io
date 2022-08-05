@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Form, Input } from 'antd';
 
 const InputCheckPoint = ({ form }) => {
-
   return (
     <Form
       form={form}
@@ -13,44 +12,26 @@ const InputCheckPoint = ({ form }) => {
         career_path_100: 'Micro-Job completed',
       }}
     >
-      <Form.Item
-        name="career_path_0"
-        label="0%"
-      >
+      <Form.Item name="career_path_0" label="0%">
         <Input placeholder="Type your response" />
       </Form.Item>
-      <Form.Item
-        name="career_path_20"
-        label="20%"
-      >
+      <Form.Item name="career_path_20" label="20%">
         <Input placeholder="Type your response" />
       </Form.Item>
-      <Form.Item
-        name="career_path_40"
-        label="40%"
-      >
+      <Form.Item name="career_path_40" label="40%">
         <Input placeholder="Type your response" />
       </Form.Item>
-      <Form.Item
-        name="career_path_60"
-        label="60%"
-      >
+      <Form.Item name="career_path_60" label="60%">
         <Input placeholder="Type your response" />
       </Form.Item>
-      <Form.Item
-        name="career_path_80"
-        label="80%"
-      >
+      <Form.Item name="career_path_80" label="80%">
         <Input placeholder="Type your response" />
       </Form.Item>
-      <Form.Item
-        name="career_path_100"
-        label="100%"
-      >
+      <Form.Item name="career_path_100" label="100%">
         <Input placeholder="Type your response" />
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-export default InputCheckPoint
+export default InputCheckPoint;

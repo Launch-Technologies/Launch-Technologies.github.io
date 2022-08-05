@@ -1,4 +1,4 @@
-import { Landing, Login, NotFound, SignUp } from 'pages'
+import { Landing, Login, NotFound, SignUp } from 'pages';
 
 const publicRoutes = [
   {

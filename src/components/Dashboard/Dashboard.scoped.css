@@ -26,38 +26,40 @@
   background-size: 100% 100%;
 }
 
-.sider_background>>>.ant-menu li .ant-menu-submenu-title,
-.sider_background>>>.ant-menu-submenu-arrow {
+.sider_background >>> .ant-menu li .ant-menu-submenu-title,
+.sider_background >>> .ant-menu-submenu-arrow {
   color: white !important;
   font-size: 2em;
 }
 
-.sider_background>>>.ant-menu-sub.ant-menu-inline {
+.sider_background >>> .ant-menu-sub.ant-menu-inline {
   background: transparent;
 }
 
-.sider_background>>>.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+.sider_background
+  >>> .ant-menu:not(.ant-menu-horizontal)
+  .ant-menu-item-selected {
   background-color: #f5be41;
   font-size: 1.2rem;
   color: white;
 }
 
-.sider_background>>>.ant-menu-item {
+.sider_background >>> .ant-menu-item {
   padding-left: 1.5em !important;
   font-size: 1.2rem;
 }
 
-.sider_background>>>.ant-menu {
+.sider_background >>> .ant-menu {
   padding-left: 0 !important;
   color: white;
 }
 
-.sider_background>>>.ant-menu-submenu-title {
+.sider_background >>> .ant-menu-submenu-title {
   color: white;
   font-size: 1.5rem;
 }
 
-.top-menu>>>* {
+.top-menu >>> * {
   color: black;
   font-size: medium;
 }
@@ -66,7 +68,7 @@
   margin-left: 250px !important;
   background: #fff;
   background-size: 50% 100%;
-  border: 1px solid #E7E1E1;
+  border: 1px solid #e7e1e1;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   min-height: 90vh !important;

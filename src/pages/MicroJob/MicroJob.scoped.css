@@ -1,13 +1,13 @@
 .search_input {
-  background: #FFFFFF;
-  border: 0.5px solid #C4C4C4;
+  background: #ffffff;
+  border: 0.5px solid #c4c4c4;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  padding: .7em;
+  padding: 0.7em;
 }
 
-.sort_options>>>.ant-select-selector {
-  border: 0.5px solid #C4C4C4;
+.sort_options >>> .ant-select-selector {
+  border: 0.5px solid #c4c4c4;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
@@ -18,9 +18,9 @@
   border-radius: 10px;
   background-color: #f5be40;
   color: white;
-  font-size: 600
+  font-size: 600;
 }
 
 .row_content {
-  margin: 2em 0
+  margin: 2em 0;
 }

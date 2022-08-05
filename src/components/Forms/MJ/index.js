@@ -1,23 +1,23 @@
-import InputName from "./InputName";
-import InputBrief from "./InputBrief";
-import InputCareerP from "./InputCareerP";
-import InputCheckPoint from "./InputCheckPoint";
-import InputExpectations from "./InputExpectations";
-import InputRenum from "./InputRenum";
-import SelectBadges from "./SelectBadges";
-import UploadPhoto from "./UploadPhoto";
-import UploadRelFiles from "./UploadRelFiles";
+import InputBrief from './InputBrief';
+import InputCareerP from './InputCareerP';
+import InputCheckPoint from './InputCheckPoint';
+import InputExpectations from './InputExpectations';
+import InputName from './InputName';
+import InputRenum from './InputRenum';
+import SelectBadges from './SelectBadges';
+import UploadPhoto from './UploadPhoto';
+import UploadRelFiles from './UploadRelFiles';
 
 let title = {
-  1: "Write a Name of Task",
-  2: "Upload a Cover Photo",
-  3: "Write a Brief",
-  4: "Select Badges",
-  5: "Write a Renumeration",
-  6: "Write a Expectation",
-  7: "Write a Career Prospect",
-  8: "Write a Checkpoint",
-  9: "Upload Relevant Files",
+  1: 'Write a Name of Task',
+  2: 'Upload a Cover Photo',
+  3: 'Write a Brief',
+  4: 'Select Badges',
+  5: 'Write a Renumeration',
+  6: 'Write a Expectation',
+  7: 'Write a Career Prospect',
+  8: 'Write a Checkpoint',
+  9: 'Upload Relevant Files',
 };
 const NewForms = ({ order, form }) => {
   switch (order) {
@@ -40,6 +40,6 @@ const NewForms = ({ order, form }) => {
     default: // 9
       return <UploadRelFiles {...{ form }} />;
   }
-}
+};
 
-export { NewForms, title }
+export { NewForms, title };

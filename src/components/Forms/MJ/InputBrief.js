@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Form, Input } from 'antd';
 
 const InputBrief = ({ form }) => {
@@ -21,10 +21,14 @@ const InputBrief = ({ form }) => {
           },
         ]}
       >
-        <Input.TextArea rows={4} placeholder="maximum length is 255" maxLength={255} />
+        <Input.TextArea
+          rows={4}
+          placeholder="maximum length is 255"
+          maxLength={255}
+        />
       </Form.Item>
     </Form>
-  )
-}
+  );
+};
 
-export default InputBrief
+export default InputBrief;

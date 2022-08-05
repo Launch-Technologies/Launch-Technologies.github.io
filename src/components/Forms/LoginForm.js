@@ -1,9 +1,9 @@
 import React from 'react';
 import { CaretLeftOutlined } from '@ant-design/icons';
-import { Row, Col, Button, Form, Input } from 'antd';
+import { Button, Col, Form, Input, Row } from 'antd';
+import 'pages/Login/Login.scoped.css';
 import { Link } from 'react-router-dom';
 import { useLogin } from 'components/hooks/useLogin';
-import 'pages/Login/Login.scoped.css';
 
 const LoginForm = ({ setform }) => {
   const { email, password, changeEmail, changePassword, onLogin, errorMsg } =

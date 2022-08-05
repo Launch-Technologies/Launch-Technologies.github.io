@@ -22,11 +22,12 @@
   text-align: center;
 }
 
-
 .content_right {
-  background-image: linear-gradient(to right,
-      rgba(193, 229, 255, 1),
-      rgba(136, 107, 255, 1));
+  background-image: linear-gradient(
+    to right,
+    rgba(193, 229, 255, 1),
+    rgba(136, 107, 255, 1)
+  );
   margin: 0 auto;
 }
 
@@ -69,11 +70,12 @@
 
 .signup_form_back_btn {
   display: block;
-  margin-left: .5em;
+  margin-left: 0.5em;
   color: #000000;
 }
 
-.input_form.ant-input, .input_form.ant-input-password {
+.input_form.ant-input,
+.input_form.ant-input-password {
   background-color: #eeeeee;
   font-size: 21px !important;
   margin-left: 0.5em !important;

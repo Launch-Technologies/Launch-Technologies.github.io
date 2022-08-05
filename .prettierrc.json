@@ -39,5 +39,8 @@
   "importOrderSortSpecifiers": true,
   "importOrderSeparation": false,
   "importOrderCaseInsensitive": false,
-  "importOrderParserPlugins": ["typescript", "jsx"]
+  "importOrderParserPlugins": [
+    "typescript",
+    "jsx"
+  ]
 }

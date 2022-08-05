@@ -1,8 +1,8 @@
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import './App.css';
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import { googleAuthClientId, useAuth } from './auth';
 import { getRoutesBaseRoles } from './routes';
-import { googleAuthClientId, useAuth } from "./auth";
 
 function App() {
   const [logged] = useAuth();

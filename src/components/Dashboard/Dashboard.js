@@ -14,16 +14,14 @@ const items2 = [LaptopOutlined].map((icon, index) => {
     key: `MicroJobs`,
     icon: React.createElement(icon),
     label: `MicroJobs`,
-    children: ['Progress Tracker', 'Submissions'].map(
-      (_, j) => {
-        const subKey = index * 4 + j + 1;
-        console.log("🚀 ~ subKey", subKey)
-        return {
-          key: subKey,
-          label: _,
-        };
-      }
-    ),
+    children: ['Progress Tracker', 'Submissions'].map((_, j) => {
+      const subKey = index * 4 + j + 1;
+      console.log('🚀 ~ subKey', subKey);
+      return {
+        key: subKey,
+        label: _,
+      };
+    }),
   };
 });
 
@@ -52,7 +50,7 @@ const Dashboard = ({ children }) => (
           console.log(collapsed, type);
         }}
         width={250}
-        className='sider'
+        className="sider"
         style={{ paddingTop: 64, height: '100vh' }}
       >
         <Menu
@@ -60,7 +58,7 @@ const Dashboard = ({ children }) => (
           mode="inline"
           // theme='dark'
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={["MicroJobs"]}
+          defaultOpenKeys={['MicroJobs']}
           style={{
             height: '100%',
             borderRight: 0,

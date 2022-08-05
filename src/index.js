@@ -1,10 +1,10 @@
 import React from 'react';
 import 'antd/dist/antd.min.css';
+import { UserProvider } from 'context/user';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './helper.css';
 import reportWebVitals from './reportWebVitals';
-import { UserProvider } from 'context/user';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CaretLeftOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, Row, Col } from 'antd';
+import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
 import 'pages/SignUp/SignUp.scoped.css';
 
 const SignUpForm = ({ setform }) => {
@@ -81,7 +81,9 @@ const SignUpForm = ({ setform }) => {
                   }
 
                   return Promise.reject(
-                    new Error('The two passwords that you entered do not match!')
+                    new Error(
+                      'The two passwords that you entered do not match!'
+                    )
                   );
                 },
               }),
@@ -111,7 +113,9 @@ const SignUpForm = ({ setform }) => {
                 Terms and Conditions
               </a>{' '}
               and{' '}
-              <a href="https://www.joblaunch.co/privacypolicy">Privacy Policy</a>
+              <a href="https://www.joblaunch.co/privacypolicy">
+                Privacy Policy
+              </a>
             </Checkbox>
           </Form.Item>
           <Form.Item>

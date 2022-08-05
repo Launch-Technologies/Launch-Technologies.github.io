@@ -1,12 +1,9 @@
 {
   "editor.tabSize": 2,
-  "emeraldwalk.runonsave": {
-    "autoClearConsole": true,
-    "commands": [
-      {
-        "match": ".js",
-        "cmd": "npm run format"
-      }
-    ]
-  }
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "prettier.configPath": ".prettierrc.json"
 }

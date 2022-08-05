@@ -18,16 +18,16 @@ const Landing = () => {
       </Header>
       <Layout>
         <Content className="site_layout_background">
-          <div className='ant-card' id="card-1">
+          <div className="ant-card" id="card-1">
             <div className="ant-card-body" />
           </div>
-          <div className='ant-card' id="card-2">
+          <div className="ant-card" id="card-2">
             <div className="ant-card-body" />
           </div>
-          <div className='ant-card' id="card-3">
+          <div className="ant-card" id="card-3">
             <div className="ant-card-body" />
           </div>
-          <div className='ant-card' id="card-4">
+          <div className="ant-card" id="card-4">
             <div className="ant-card-body" />
           </div>
           <div id="content-grid">
@@ -46,9 +46,7 @@ const Landing = () => {
                 <Link to="/sign-in">
                   <Button size="large" className="call_to_action_btn">
                     {LANDING_BTN_TEXT}
-                    <ArrowRightOutlined
-                      className="call_to_action_icon"
-                    />
+                    <ArrowRightOutlined className="call_to_action_icon" />
                   </Button>
                 </Link>
               </Col>
