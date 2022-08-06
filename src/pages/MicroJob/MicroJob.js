@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import { Button, Col, Input, Row, Select } from 'antd';
+import { Button, Col, Input, Row, Select, Space } from 'antd';
 import Card from 'components/Cards/Card';
 import Dashboard from 'components/Dashboard/Dashboard';
 import NewMicroJobModal from 'components/Modals/NewMicroJobModal';
@@ -56,9 +56,11 @@ const MicroJob = () => {
   return (
     <Dashboard>
       <section id="microjob_page">
-        <Row justify="space-between" align="middle">
+        <Row justify="space-between" align="middle" gutter={[0, 16]}>
           <Col
-            // xs={{ span: 18 }}
+            //
+            xs={{ span: 24 }}
+            // xs={{ span: 24 }}
             lg={{ span: 13 }}
           >
             <Input
@@ -66,33 +68,30 @@ const MicroJob = () => {
               className="search_input"
             ></Input>
           </Col>
-          <Col
-            align="end"
-            // xs={{ span: 18 }}
-            lg={{ span: 2 }}
-          >
-            Sort By:
+          <Col lg={{ span: 6 }}>
+            <Row justify="space-between" align="middle" gutter={[10]}>
+              <Col align="end" lg={{ span: 8 }}>
+                Sort By:
+              </Col>
+              <Col lg={{ span: 16 }}>
+                <div>
+                  <Select
+                    size="large"
+                    defaultValue="old_new"
+                    className="sort_options"
+                  >
+                    <Option value="old_new">Oldest - Newest</Option>
+                    <Option value="close_soon">Closing Soon</Option>
+                    <Option value="new_old">Newest - Oldest</Option>
+                    <Option value="a_z">A - Z</Option>
+                    <Option value="z_a">Z - A</Option>
+                  </Select>
+                </div>
+              </Col>
+            </Row>
           </Col>
           <Col
-            // xs={{ span: 18 }}
-            lg={{ span: 4 }}
-          >
-            <div>
-              <Select
-                size="large"
-                defaultValue="old_new"
-                className="sort_options"
-              >
-                <Option value="old_new">Oldest - Newest</Option>
-                <Option value="close_soon">Closing Soon</Option>
-                <Option value="new_old">Newest - Oldest</Option>
-                <Option value="a_z">A - Z</Option>
-                <Option value="z_a">Z - A</Option>
-              </Select>
-            </div>
-          </Col>
-          <Col
-            // xs={{ span: 18 }}
+            // xs={{ span: 24 }}
             lg={{ span: 3 }}
           >
             <Button

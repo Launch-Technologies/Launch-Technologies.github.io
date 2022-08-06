@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Layout, Row, Typography } from 'antd';
-import { Link } from 'react-router-dom';
+import { useAuth } from 'auth';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from 'components/Forms/LoginForm';
 import { LOGIN_BG_TEXT } from 'data/strings';
 import './Login.scoped.css';
@@ -10,6 +11,12 @@ const { Title } = Typography;
 
 const Login = () => {
   const [form, setform] = useState('');
+  const [logged] = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    logged && navigate('/micro-jobs');
+  }, [logged]);
 
   const Forms = () => {
     switch (form) {

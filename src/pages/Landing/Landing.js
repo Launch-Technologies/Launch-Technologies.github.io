@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Button, Col, Layout, Row, Typography } from 'antd';
+import { useAuth } from 'auth';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LANDING_BTN_TEXT, LANDING_DESC, LANDING_TITLE } from 'data/strings';
 import './Landing.scoped.css';
 
@@ -9,6 +11,13 @@ const { Header, Content } = Layout;
 const { Title, Text } = Typography;
 
 const Landing = () => {
+  const [logged] = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    logged && navigate('/micro-jobs');
+  }, [logged]);
+
   return (
     <Layout>
       <Header className="header">
