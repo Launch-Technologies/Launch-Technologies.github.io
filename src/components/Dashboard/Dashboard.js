@@ -17,7 +17,6 @@ const items2 = [LaptopOutlined].map((icon, index) => {
     label: `MicroJobs`,
     children: ['Progress Tracker', 'Submissions'].map((_, j) => {
       const subKey = index * 4 + j + 1;
-      console.log('🚀 ~ subKey', subKey);
       return {
         key: subKey,
         label: _,
