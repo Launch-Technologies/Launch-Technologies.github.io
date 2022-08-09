@@ -26,11 +26,11 @@ const fileIsValid = (file) => {
 };
 
 const UploadPhoto = () => {
-  const MJcontext = useContext(NewMJContext);
-  const [imageUrl, setImageUrl] = useState(MJcontext.cover_photo);
+  const { cover_photo, setFieldValue } = useContext(NewMJContext);
+  const [imageUrl, setImageUrl] = useState(cover_photo);
 
   const onChangeInput = (url) => {
-    MJcontext.setFieldValue('cover_photo', url, true);
+    setFieldValue('cover_photo', url, true);
   };
 
   const handleChange = (info) => {
@@ -74,7 +74,7 @@ const UploadPhoto = () => {
       multiple={false}
       onChange={handleChange}
       onRemove={onRemovePhoto}
-      defaultFileList={[{ url: imageUrl }]}
+      defaultFileList={imageUrl ? [{ url: imageUrl }] : []}
     >
       {imageUrl == null ? uploadButton : null}
     </Upload>

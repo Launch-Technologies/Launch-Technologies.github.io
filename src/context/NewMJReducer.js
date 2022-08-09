@@ -7,6 +7,8 @@ const MJReducer = (state, action) => {
     case 'SET_FIELD_VALUE':
       const { field, value, isFile } = action.payload;
       const fd = state.forms;
+      let newVal = {};
+
       if (!isFile) {
         fd.has(field) ? fd.set(field, value) : fd.append(field, value);
       } else {
@@ -17,11 +19,13 @@ const MJReducer = (state, action) => {
               ? fd.set(field, blob, 'file.jpg')
               : fd.append(field, blob, 'file.jpg');
           });
+        newVal[field] = value;
       }
 
       return {
         ...state,
         forms: fd,
+        ...newVal,
       };
 
     case 'RESET_FORM':
