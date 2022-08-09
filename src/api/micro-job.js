@@ -2,8 +2,8 @@ import { CrudApi } from './crud-api';
 
 class MicroJobService extends CrudApi {
   /** GET API */
-  async fetchMicroJob(params) {
-    let result = await this.get(`/micro-jobs`, params);
+  async fetchMicroJob(params, cancelToken) {
+    let result = await this.get(`/micro-jobs`, params, cancelToken);
     return result.data;
   }
 

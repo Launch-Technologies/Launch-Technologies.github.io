@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import { Button, Col, Input, Row, Select, Space, Spin } from 'antd';
+import { Button, Col, Input, Row, Select, Spin } from 'antd';
 import MicroJobService from 'api/micro-job';
+import axios from 'axios';
 import NewMJContextProvider from 'context/NewMJProvider';
 import MicroJobCard from 'components/Cards/Card';
 import Dashboard from 'components/Dashboard/Dashboard';
@@ -15,10 +16,18 @@ const MicroJob = () => {
   const [microjobs, setmicrojobs] = useState([]);
   const [filter, setfilter] = useState({});
   const [fetched, setfetched] = useState(false);
+  let cancelToken;
 
   useEffect(() => {
     const fetchMicroJobs = async () => {
-      let fetched = await microjobService.fetchMicroJob(filter);
+      if (typeof cancelToken != typeof undefined) {
+        cancelToken.cancel();
+      }
+      cancelToken = axios.CancelToken.source();
+      let fetched = await microjobService.fetchMicroJob(
+        filter,
+        cancelToken.token
+      );
       setmicrojobs(fetched);
     };
     fetchMicroJobs();
@@ -29,8 +38,16 @@ const MicroJob = () => {
   }, [microjobs]);
 
   const sortMicroJob = (value) => {
-    setfetched(false);
     setfilter(JSON.parse(value));
+  };
+
+  const handleChangeInput = (e) => {
+    setmicrojobs([]);
+    setfetched(false);
+    setfilter({
+      task_name__like: e.target.value,
+    });
+    cancelToken.cancel();
   };
 
   return (
@@ -46,6 +63,7 @@ const MicroJob = () => {
             <Input
               placeholder="Search for a micro-jobs"
               className="search_input"
+              onChange={handleChangeInput}
             ></Input>
           </Col>
           <Col lg={{ span: 6 }}>
