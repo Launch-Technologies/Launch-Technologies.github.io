@@ -24,3 +24,9 @@
 .row_content {
   margin: 2em 0;
 }
+
+.fetch_mj_spinner {
+  vertical-align: middle;
+  position: absolute;
+  top: 35vh;
+}

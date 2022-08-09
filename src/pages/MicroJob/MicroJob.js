@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import { Button, Col, Input, Row, Select, Space } from 'antd';
+import { Button, Col, Input, Row, Select, Space, Spin } from 'antd';
 import MicroJobService from 'api/micro-job';
 import NewMJContextProvider from 'context/NewMJProvider';
 import MicroJobCard from 'components/Cards/Card';
@@ -13,14 +13,25 @@ const MicroJob = () => {
   const [showForm, setshowForm] = useState(false);
   const microjobService = new MicroJobService();
   const [microjobs, setmicrojobs] = useState([]);
+  const [filter, setfilter] = useState({});
+  const [fetched, setfetched] = useState(false);
 
   useEffect(() => {
     const fetchMicroJobs = async () => {
-      let fetched = await microjobService.fetchMicroJob();
+      let fetched = await microjobService.fetchMicroJob(filter);
       setmicrojobs(fetched);
     };
     fetchMicroJobs();
-  }, []);
+  }, [filter]);
+
+  useEffect(() => {
+    microjobs.length > 0 ? setfetched(true) : setfetched(false);
+  }, [microjobs]);
+
+  const sortMicroJob = (value) => {
+    setfetched(false);
+    setfilter(JSON.parse(value));
+  };
 
   return (
     <Dashboard>
@@ -48,12 +59,17 @@ const MicroJob = () => {
                     size="large"
                     defaultValue="old_new"
                     className="sort_options"
+                    onChange={sortMicroJob}
                   >
-                    <Option value="old_new">Oldest - Newest</Option>
-                    <Option value="close_soon">Closing Soon</Option>
-                    <Option value="new_old">Newest - Oldest</Option>
-                    <Option value="a_z">A - Z</Option>
-                    <Option value="z_a">Z - A</Option>
+                    <Option value='{"date__sort":"desc"}'>
+                      Oldest - Newest
+                    </Option>
+                    <Option value='{"date__sort":"asc"}'>
+                      Newest - Oldest
+                    </Option>
+                    {/* <Option value='{"date__lt":"asc"}'>Closing Soon</Option> */}
+                    <Option value='{"task_name__sort":"asc"}'>A - Z</Option>
+                    <Option value='{"task_name__sort":"desc"}'>Z - A</Option>
                   </Select>
                 </div>
               </Col>
@@ -74,6 +90,13 @@ const MicroJob = () => {
             </Button>
           </Col>
         </Row>
+        {!fetched && (
+          <Row justify="space-evenly" align="middle">
+            <Col span={1}>
+              <Spin className="fetch_mj_spinner" size="large"></Spin>
+            </Col>
+          </Row>
+        )}
         <Row align="top" className="row_content" gutter={[25, 25]}>
           {microjobs.map((e) => {
             return (
