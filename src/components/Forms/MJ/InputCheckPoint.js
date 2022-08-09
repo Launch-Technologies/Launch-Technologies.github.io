@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
 const InputCheckPoint = ({ form }) => {
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <Form
       form={form}
@@ -13,7 +19,7 @@ const InputCheckPoint = ({ form }) => {
       }}
     >
       <Form.Item name="career_path_0" label="0%">
-        <Input placeholder="Type your response" />
+        <Input ref={inputRef} placeholder="Type your response" />
       </Form.Item>
       <Form.Item name="career_path_20" label="20%">
         <Input placeholder="Type your response" />

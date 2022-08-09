@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
-const inputCareerP = ({ form }) => {
+const InputCareerP = ({ form }) => {
+  const MJcontext = useContext(NewMJContext);
+
+  const inputCareerP = useRef(null);
+  useEffect(() => {
+    inputCareerP.current.focus();
+  }, []);
+
+  const onChangeInput = (e) => {
+    MJcontext.setFieldValue('career_prospects', e.target.value);
+  };
+
   return (
     <Form
       form={form}
@@ -12,8 +24,8 @@ const inputCareerP = ({ form }) => {
       }}
     >
       <Form.Item
-        name="career_path"
-        label="Write the career path (required)"
+        name="career_prospect"
+        label=""
         rules={[
           {
             required: true,
@@ -22,13 +34,15 @@ const inputCareerP = ({ form }) => {
         ]}
       >
         <Input.TextArea
-          rows={4}
-          placeholder="maximum length is 255"
+          rows={6}
+          placeholder="Type your response..."
           maxLength={255}
+          ref={inputCareerP}
+          onChange={onChangeInput}
         />
       </Form.Item>
     </Form>
   );
 };
 
-export default inputCareerP;
+export default InputCareerP;

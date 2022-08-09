@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button, Col, Input, Row, Select, Space } from 'antd';
-import Card from 'components/Cards/Card';
+import MicroJobService from 'api/micro-job';
+import NewMJContextProvider from 'context/NewMJProvider';
+import MicroJobCard from 'components/Cards/Card';
 import Dashboard from 'components/Dashboard/Dashboard';
 import NewMicroJobModal from 'components/Modals/NewMicroJobModal';
 import './MicroJob.scoped.css';
@@ -9,50 +11,17 @@ import './MicroJob.scoped.css';
 const { Option } = Select;
 const MicroJob = () => {
   const [showForm, setshowForm] = useState(false);
-  const microjobs = [
-    {
-      id: 1,
-      img: '/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png',
-      name: 'Mj1',
-      btn_url: '/submissions',
-      btn_text: 'Continue',
-    },
-    {
-      id: 2,
-      img: '/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png',
-      name: 'Mj1',
-      btn_url: '/submissions',
-      btn_text: 'Continue',
-    },
-    {
-      id: 3,
-      img: '/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png',
-      name: 'Mj1dsafdska',
-      btn_url: '/submissions',
-      btn_text: 'Continue',
-    },
-    {
-      id: 4,
-      img: '/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png',
-      name: 'Mj1',
-      btn_url: '/submissions',
-      btn_text: 'Continue',
-    },
-    {
-      id: 5,
-      img: '/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png',
-      name: 'Mj1',
-      btn_url: '/submissions',
-      btn_text: 'Continue',
-    },
-    {
-      id: 6,
-      img: '/public/assets/img/favpng_job-interview-vector-graphics-job-hunting-employment.png',
-      name: 'Mj1',
-      btn_url: '/submissions',
-      btn_text: 'Continue',
-    },
-  ];
+  const microjobService = new MicroJobService();
+  const [microjobs, setmicrojobs] = useState([]);
+
+  useEffect(() => {
+    const fetchMicroJobs = async () => {
+      let fetched = await microjobService.fetchMicroJob();
+      setmicrojobs(fetched);
+    };
+    fetchMicroJobs();
+  }, []);
+
   return (
     <Dashboard>
       <section id="microjob_page">
@@ -105,7 +74,7 @@ const MicroJob = () => {
             </Button>
           </Col>
         </Row>
-        <Row align="middle" className="row_content" gutter={[25, 25]}>
+        <Row align="top" className="row_content" gutter={[25, 25]}>
           {microjobs.map((e) => {
             return (
               <Col
@@ -114,13 +83,15 @@ const MicroJob = () => {
                 xs={{ span: 12 }}
                 key={e.id}
               >
-                <Card {...e} />
+                <MicroJobCard {...e} />
               </Col>
             );
           })}
         </Row>
       </section>
-      <NewMicroJobModal visible={showForm} setshowForm={setshowForm} />
+      <NewMJContextProvider>
+        <NewMicroJobModal visible={showForm} setshowForm={setshowForm} />
+      </NewMJContextProvider>
     </Dashboard>
   );
 };

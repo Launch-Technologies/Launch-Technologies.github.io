@@ -1,32 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card as CardAntd, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 import './Card.scoped.css';
 
-const Card = ({ img, name, btn_url, btn_text }) => {
-  // console.log("🚀 ~ btn_text", btn_text)
-  // console.log("🚀 ~ btn_url", btn_url)
-  // console.log("🚀 ~ name", name)
-  // console.log("🚀 ~ img", img)
+const Card = ({ id, cover_photo, task_name }) => {
+  const [loading, setloading] = useState(true);
+  const defaulCoverPhoto =
+    'https://app.joblaunch.co/assets/img/Micro%20Task.png';
+  const coverPhotos = ['null', 'None'].includes(cover_photo)
+    ? defaulCoverPhoto
+    : 'https://dev.joblaunch.co/api' + cover_photo;
+
+  const onLoaded = () => {
+    setTimeout(() => {
+      setloading(false);
+    }, 1000);
+  };
+
+  const CoverImage = () => {
+    return (
+      <img
+        alt={task_name}
+        src={coverPhotos}
+        onLoad={onLoaded}
+        onError={({ currentTarget }) => {
+          currentTarget.src = defaulCoverPhoto;
+        }}
+      />
+    );
+  };
+
   return (
     <CardAntd
       className="card_"
       hoverable
-      cover={
-        <img
-          alt={name}
-          src="https://app.joblaunch.co/assets/img/Micro%20Task.png"
-        />
-      }
+      cover={<CoverImage />}
+      loading={loading}
     >
       <Row justify="space-between" align="bottom">
         <Col span={16}>
-          <span className="microjob_title">{name}</span>
+          <span className="microjob_title">{task_name}</span>
         </Col>
         <Col span={8}>
-          <Link to={btn_url}>
+          <Link to={'/microjobs/' + id}>
             <Button block className="btn_card">
-              {btn_text}
+              Continue
             </Button>
           </Link>
         </Col>

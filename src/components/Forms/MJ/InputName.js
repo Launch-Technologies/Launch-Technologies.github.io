@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
 const InputName = ({ form }) => {
+  const MJcontext = useContext(NewMJContext);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  const onChangeInput = (e) => {
+    MJcontext.setFieldValue('task_name', e.target.value);
+  };
+
   return (
     <Form
       form={form}
@@ -13,7 +25,7 @@ const InputName = ({ form }) => {
     >
       <Form.Item
         name="name"
-        label="Name of Task (required)"
+        label="required"
         rules={[
           {
             required: true,
@@ -21,7 +33,11 @@ const InputName = ({ form }) => {
           },
         ]}
       >
-        <Input />
+        <Input
+          placeholder="Type yout response..."
+          onChange={onChangeInput}
+          ref={inputRef}
+        />
       </Form.Item>
     </Form>
   );

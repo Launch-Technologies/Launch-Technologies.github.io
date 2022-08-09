@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
-import { Form, Modal } from 'antd';
+import React, { useContext, useState } from 'react';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Form, Modal, message } from 'antd';
+import MicroJobService from 'api/micro-job';
+import { NewMJContext } from 'context/NewMJProvider';
 import { NewForms, title } from 'components/Forms/MJ';
 import './Modal.scoped.css';
 
+const { confirm } = Modal;
+
 const NewMicroJobModal = ({ visible, setshowForm }) => {
+  const { resetForm, forms } = useContext(NewMJContext);
+  const microjobService = new MicroJobService();
   const [order, setorder] = useState(1);
   const [form] = Form.useForm();
-
-  const formValidate = () => {
-    form
-      .validateFields()
-      .then((values) => {
-        form.resetFields();
-        // onCreate(values);
-      })
-      .catch((info) => {
-        console.log('Validate Failed:', info);
-      });
-  };
-  console.log('🚀 ~ formValidate', formValidate);
 
   const onNext = () => {
     return setorder(order + 1);
@@ -36,9 +30,29 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
     return onHideModal();
   };
 
-  const onFinish = () => {
-    setorder(1);
-    return setshowForm(false);
+  const onFinish = async () => {
+    confirm({
+      title: 'You are going to post a micro-job..',
+      icon: <ExclamationCircleOutlined />,
+      className: 'modal_new',
+      onOk() {
+        const res = microjobService.postMicroJob([forms]);
+        res.then((e) => {
+          if (e.status == 'Ok') {
+            setorder(1);
+            setshowForm(false);
+            resetForm();
+            message.success('micro-job successfully created!', 3);
+          } else {
+            message.error(
+              'something went wrong when trying to post micro-job',
+              3
+            );
+          }
+        });
+      },
+      onCancel() {},
+    });
   };
 
   return (

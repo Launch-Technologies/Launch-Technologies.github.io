@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
 const InputBrief = ({ form }) => {
+  const MJcontext = useContext(NewMJContext);
+  const inputBrief = useRef(null);
+  useEffect(() => {
+    inputBrief.current.focus();
+  }, []);
+
+  const onChangeInput = (e) => {
+    MJcontext.setFieldValue('brief', e.target.value);
+  };
+
   return (
     <Form
       form={form}
@@ -13,7 +24,7 @@ const InputBrief = ({ form }) => {
     >
       <Form.Item
         name="brief"
-        label="Write a Brief (required)"
+        label=""
         rules={[
           {
             required: true,
@@ -22,9 +33,11 @@ const InputBrief = ({ form }) => {
         ]}
       >
         <Input.TextArea
-          rows={4}
-          placeholder="maximum length is 255"
+          rows={6}
+          placeholder="Type your response..."
           maxLength={255}
+          onChange={onChangeInput}
+          ref={inputBrief}
         />
       </Form.Item>
     </Form>

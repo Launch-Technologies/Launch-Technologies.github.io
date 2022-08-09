@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Form, Select } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
 const SelectBadges = ({ form }) => {
-  const OPTIONS = ['HTML', 'CSS', 'JAVASCRIPT'];
-  const [selectedItems, setSelectedItems] = useState([]);
-  const filteredOptions = OPTIONS.filter((o) => !selectedItems.includes(o));
+  const MJcontext = useContext(NewMJContext);
+  const [options, setoptions] = useState(MJcontext.skills);
+  // const [selectedItems, setSelectedItems] = useState(MJcontext.selected_skills);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  const onChangeInput = (e) => {
+    MJcontext.setSelectedSkill('selected_skills', e);
+  };
+
+  useEffect(() => {
+    MJcontext.fetchSkills();
+    setoptions(MJcontext.skills);
+  }, [MJcontext.skills]);
 
   return (
     <Form
@@ -17,7 +32,7 @@ const SelectBadges = ({ form }) => {
     >
       <Form.Item
         name="badges"
-        label="Select Bagdes (required)"
+        label=""
         rules={[
           {
             required: true,
@@ -27,14 +42,15 @@ const SelectBadges = ({ form }) => {
       >
         <Select
           mode="multiple"
-          placeholder="Inserted are removed"
-          value={selectedItems}
-          onChange={setSelectedItems}
+          placeholder="Select badges.."
+          // value={selectedItems}
+          onChange={onChangeInput}
           style={{ width: '100%' }}
+          ref={inputRef}
         >
-          {filteredOptions.map((item) => (
-            <Select.Option key={item} value={item}>
-              {item}
+          {options.map((item) => (
+            <Select.Option key={item.id} value={item.id}>
+              {item.name}
             </Select.Option>
           ))}
         </Select>

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import React, { useContext, useEffect, useState } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 import { Upload, message } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
@@ -8,15 +9,12 @@ const getBase64 = (img, callback) => {
   reader.readAsDataURL(img);
 };
 
-const beforeUpload = (file) => {
+const fileIsValid = (file) => {
   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
-
   if (!isJpgOrPng) {
     message.error('You can only upload JPG/PNG file!');
   }
-
   const isLt2M = file.size / 1024 / 1024 < 2;
-
   if (!isLt2M) {
     message.error('Image must smaller than 2MB!');
   }
@@ -25,27 +23,39 @@ const beforeUpload = (file) => {
 };
 
 const UploadRelFiles = () => {
-  const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState();
+  const { upload_relevant_files, setFieldValue } = useContext(NewMJContext);
 
   const handleChange = (info) => {
-    if (info.file.status === 'uploading') {
-      setLoading(true);
-      return;
-    }
+    getBase64(info.file.originFileObj, (url) => {
+      if (!info.fileList.length > 0) {
+        // setImageUrl(null);
+        return;
+      } else {
+        if (fileIsValid(info.file)) {
+          if (!upload_relevant_files.map((e) => e.url).includes(url)) {
+            setFieldValue(
+              'upload_relevant_files',
+              [...upload_relevant_files, { url: url }],
+              true
+            );
+          }
+        }
+      }
+    });
+    // }
+  };
 
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, (url) => {
-        setLoading(false);
-        setImageUrl(url);
-      });
-    }
+  const onRemovePhoto = (e) => {
+    setFieldValue(
+      'upload_relevant_files',
+      [...upload_relevant_files.filter((f) => f.url !== e.url)],
+      true
+    );
   };
 
   const uploadButton = (
     <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <PlusOutlined />
       <div
         style={{
           marginTop: 8,
@@ -57,25 +67,17 @@ const UploadRelFiles = () => {
   );
   return (
     <Upload
-      name="relevant_files"
+      name="cover_photo"
       listType="picture-card"
-      className="relevant_files"
-      showUploadList={false}
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-      beforeUpload={beforeUpload}
+      className="avatar-uploader"
+      showUploadList={true}
+      multiple={false}
       onChange={handleChange}
+      onRemove={onRemovePhoto}
+      // beforeUpload={beforeUpload}
+      defaultFileList={upload_relevant_files}
     >
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt="relevant_files"
-          style={{
-            width: '100%',
-          }}
-        />
-      ) : (
-        uploadButton
-      )}
+      {upload_relevant_files.length >= 10 ? null : uploadButton}
     </Upload>
   );
 };

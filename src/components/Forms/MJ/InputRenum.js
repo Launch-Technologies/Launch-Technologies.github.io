@@ -1,7 +1,19 @@
-import React from 'react';
-import { Form, Input, Radio } from 'antd';
+import React, { useContext, useEffect, useRef } from 'react';
+import { Form, Input } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
-const inputRenum = ({ form }) => {
+const InputRenum = ({ form }) => {
+  const { setFieldValue } = useContext(NewMJContext);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  const onChangeInput = (e) => {
+    setFieldValue('remuneration', e.target.value);
+  };
+
   return (
     <Form
       form={form}
@@ -12,8 +24,8 @@ const inputRenum = ({ form }) => {
       }}
     >
       <Form.Item
-        name="renumeration"
-        label="Input Renumeration (required)"
+        name="remuneration"
+        label=""
         rules={[
           {
             required: true,
@@ -21,10 +33,14 @@ const inputRenum = ({ form }) => {
           },
         ]}
       >
-        <Input />
+        <Input
+          placeholder="Type your response..."
+          onChange={onChangeInput}
+          ref={inputRef}
+        />
       </Form.Item>
     </Form>
   );
 };
 
-export default inputRenum;
+export default InputRenum;

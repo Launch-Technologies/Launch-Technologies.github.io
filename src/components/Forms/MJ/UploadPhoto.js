@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import React, { useContext, useState } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 import { Upload, message } from 'antd';
+import { NewMJContext } from 'context/NewMJProvider';
 
 const getBase64 = (img, callback) => {
   const reader = new FileReader();
@@ -8,7 +9,7 @@ const getBase64 = (img, callback) => {
   reader.readAsDataURL(img);
 };
 
-const beforeUpload = (file) => {
+const fileIsValid = (file) => {
   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
 
   if (!isJpgOrPng) {
@@ -25,27 +26,36 @@ const beforeUpload = (file) => {
 };
 
 const UploadPhoto = () => {
-  const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState();
+  const MJcontext = useContext(NewMJContext);
+  const [imageUrl, setImageUrl] = useState(MJcontext.cover_photo);
+
+  const onChangeInput = (url) => {
+    MJcontext.setFieldValue('cover_photo', url, true);
+  };
 
   const handleChange = (info) => {
-    if (info.file.status === 'uploading') {
-      setLoading(true);
-      return;
-    }
+    getBase64(info.file.originFileObj, (url) => {
+      if (!info.fileList.length > 0) {
+        setImageUrl(null);
+        onChangeInput(null);
+        return;
+      } else {
+        if (fileIsValid(info.file)) {
+          setImageUrl(url);
+          onChangeInput(url);
+        }
+      }
+    });
+    // }
+  };
 
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      getBase64(info.file.originFileObj, (url) => {
-        setLoading(false);
-        setImageUrl(url);
-      });
-    }
+  const onRemovePhoto = () => {
+    setImageUrl(null);
   };
 
   const uploadButton = (
     <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
+      <PlusOutlined />
       <div
         style={{
           marginTop: 8,
@@ -57,25 +67,16 @@ const UploadPhoto = () => {
   );
   return (
     <Upload
-      name="avatar"
+      name="cover_photo"
       listType="picture-card"
       className="avatar-uploader"
-      showUploadList={false}
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-      beforeUpload={beforeUpload}
+      showUploadList={true}
+      multiple={false}
       onChange={handleChange}
+      onRemove={onRemovePhoto}
+      defaultFileList={[{ url: imageUrl }]}
     >
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt="avatar"
-          style={{
-            width: '100%',
-          }}
-        />
-      ) : (
-        uploadButton
-      )}
+      {imageUrl == null ? uploadButton : null}
     </Upload>
   );
 };

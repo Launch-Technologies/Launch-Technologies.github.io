@@ -16,8 +16,8 @@ export function useUser() {
   const userService = new StudentService();
   const context = useContext(userContext);
   useEffect(() => {
-    getUserData();
-    userService.getStudents({ populate: 'student_cohort' });
+    // getUserData();
+    // userService.getStudents({ populate: 'student_cohort' });
   }, []);
 
   async function getUserData() {
