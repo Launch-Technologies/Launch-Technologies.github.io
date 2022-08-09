@@ -38,6 +38,8 @@ const MicroJob = () => {
   }, [microjobs]);
 
   const sortMicroJob = (value) => {
+    setmicrojobs([]);
+    setfetched(false);
     setfilter(JSON.parse(value));
   };
 
@@ -47,7 +49,7 @@ const MicroJob = () => {
     setfilter({
       task_name__like: e.target.value,
     });
-    cancelToken.cancel();
+    cancelToken && cancelToken.cancel();
   };
 
   return (
@@ -75,7 +77,7 @@ const MicroJob = () => {
                 <div>
                   <Select
                     size="large"
-                    defaultValue="old_new"
+                    defaultValue={'{"date__sort":"desc"}'}
                     className="sort_options"
                     onChange={sortMicroJob}
                   >
