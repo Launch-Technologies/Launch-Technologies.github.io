@@ -1,4 +1,4 @@
-import { Dashboard, MicroJob } from 'pages';
+import { Dashboard, MicroJob, MicroJobDetails } from 'pages';
 
 const protectedRoutes = [
   {
@@ -10,6 +10,10 @@ const protectedRoutes = [
     path: '/micro-jobs',
     exact: true,
     element: <MicroJob />,
+  },
+  {
+    path: '/micro-jobs/:id',
+    element: <MicroJobDetails />,
   },
 ];
 

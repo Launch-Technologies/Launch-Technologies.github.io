@@ -9,7 +9,7 @@ const Card = ({ id, cover_photo, task_name }) => {
     'https://app.joblaunch.co/assets/img/Micro%20Task.png';
   const coverPhotos = ['null', 'None'].includes(cover_photo)
     ? defaulCoverPhoto
-    : 'https://dev.joblaunch.co/api' + cover_photo;
+    : 'http://localhost:5123/api' + cover_photo;
 
   const onLoaded = () => {
     setloading(false);
@@ -40,7 +40,7 @@ const Card = ({ id, cover_photo, task_name }) => {
           <span className="microjob_title">{task_name}</span>
         </Col>
         <Col span={8}>
-          <Link to={'/microjobs/' + id}>
+          <Link to={'/micro-jobs/' + id}>
             <Button block className="btn_card">
               Continue
             </Button>

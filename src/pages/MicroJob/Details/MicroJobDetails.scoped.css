@@ -1,0 +1,10 @@
+.fetch_mj_spinner {
+  vertical-align: middle;
+  position: absolute;
+  top: 35vh;
+}
+
+.signup_form_back_btn {
+  font-size: 15px;
+  color: #000000;
+}
