@@ -77,14 +77,14 @@ const MicroJob = () => {
                 <div>
                   <Select
                     size="large"
-                    defaultValue={'{"date__sort":"desc"}'}
+                    defaultValue={'{"created_at__sort":"desc"}'}
                     className="sort_options"
                     onChange={sortMicroJob}
                   >
-                    <Option value='{"date__sort":"desc"}'>
+                    <Option value='{"created_at__sort":"desc"}'>
                       Oldest - Newest
                     </Option>
-                    <Option value='{"date__sort":"asc"}'>
+                    <Option value='{"created_at__sort":"asc"}'>
                       Newest - Oldest
                     </Option>
                     {/* <Option value='{"date__lt":"asc"}'>Closing Soon</Option> */}
