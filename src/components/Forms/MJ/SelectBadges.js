@@ -3,23 +3,17 @@ import { Form, Select } from 'antd';
 import { NewMJContext } from 'context/NewMJProvider';
 
 const SelectBadges = ({ form }) => {
-  const MJcontext = useContext(NewMJContext);
-  const [options, setoptions] = useState(MJcontext.skills);
-  // const [selectedItems, setSelectedItems] = useState(MJcontext.selected_skills);
+  const { skills, setSelectedSkill, fetchSkills } = useContext(NewMJContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
     inputRef.current.focus();
+    fetchSkills();
   }, []);
 
   const onChangeInput = (e) => {
-    MJcontext.setSelectedSkill('selected_skills', e);
+    setSelectedSkill(e);
   };
-
-  useEffect(() => {
-    MJcontext.fetchSkills();
-    setoptions(MJcontext.skills);
-  }, [MJcontext.skills]);
 
   return (
     <Form
@@ -48,7 +42,7 @@ const SelectBadges = ({ form }) => {
           style={{ width: '100%' }}
           ref={inputRef}
         >
-          {options.map((item) => (
+          {skills.map((item) => (
             <Select.Option key={item.id} value={item.id}>
               {item.name}
             </Select.Option>

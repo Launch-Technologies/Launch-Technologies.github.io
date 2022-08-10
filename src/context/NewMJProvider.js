@@ -50,6 +50,13 @@ const NewMicroJobContext = ({ children }) => {
     });
   };
 
+  const setSelectedSkill = (data) => {
+    dispatch({
+      type: 'SET_SKILLS',
+      payload: data,
+    });
+  };
+
   return (
     <NewMJContext.Provider
       value={{
@@ -57,6 +64,7 @@ const NewMicroJobContext = ({ children }) => {
         setFieldValue,
         fetchSkills,
         resetForm,
+        setSelectedSkill,
       }}
     >
       {children}

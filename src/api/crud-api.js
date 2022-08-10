@@ -2,7 +2,11 @@ import axios from 'axios';
 import request from './request';
 
 export class CrudApi {
-  get(url, params, cancelToken = axios.CancelToken.source()) {
+  constructor() {
+    this.cancelToken = axios.CancelToken.source();
+  }
+
+  get(url, params, cancelToken = this.cancelToken.token) {
     return request({
       url: url,
       method: 'GET',

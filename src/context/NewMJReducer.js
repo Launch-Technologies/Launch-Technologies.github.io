@@ -44,6 +44,12 @@ const MJReducer = (state, action) => {
         ...state,
         skills: action.payload,
       };
+
+    case 'SET_SKILLS':
+      return {
+        ...state,
+        selected_skills: action.payload,
+      };
     default:
       break;
   }

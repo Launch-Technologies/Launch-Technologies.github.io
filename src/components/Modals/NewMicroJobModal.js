@@ -11,7 +11,8 @@ const { confirm } = Modal;
 
 const NewMicroJobModal = ({ visible, setshowForm }) => {
   const { userData } = useUser();
-  const { resetForm, forms, setFieldValue } = useContext(NewMJContext);
+  const { resetForm, forms, setFieldValue, selected_skills } =
+    useContext(NewMJContext);
   const microjobService = new MicroJobService();
   const [order, setorder] = useState(1);
 
@@ -44,6 +45,13 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
         const res = microjobService.postMicroJob(forms);
         res.then((e) => {
           if (e.status == 'Ok') {
+            selected_skills.map((f) => {
+              microjobService.postMicroJobSkill({
+                micro_job_id: e.data.id,
+                skill_id: f,
+              });
+            });
+
             setorder(1);
             setshowForm(false);
             resetForm();
