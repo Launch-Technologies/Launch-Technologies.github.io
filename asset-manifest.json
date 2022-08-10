@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Launch-Technologies.github.io/static/css/main.e30f1eba.css",
-    "main.js": "/Launch-Technologies.github.io/static/js/main.d8aeee5e.js",
-    "static/js/787.475c4da5.chunk.js": "/Launch-Technologies.github.io/static/js/787.475c4da5.chunk.js",
+    "main.css": "/Launch-Technologies.github.io/static/css/main.8d4b09b4.css",
+    "main.js": "/Launch-Technologies.github.io/static/js/main.d646fe65.js",
+    "static/js/787.01fcf905.chunk.js": "/Launch-Technologies.github.io/static/js/787.01fcf905.chunk.js",
+    "static/media/sidebar.png": "/Launch-Technologies.github.io/static/media/sidebar.1246650a3f6a86bf32f2.png",
     "index.html": "/Launch-Technologies.github.io/index.html",
-    "main.e30f1eba.css.map": "/Launch-Technologies.github.io/static/css/main.e30f1eba.css.map",
-    "main.d8aeee5e.js.map": "/Launch-Technologies.github.io/static/js/main.d8aeee5e.js.map",
-    "787.475c4da5.chunk.js.map": "/Launch-Technologies.github.io/static/js/787.475c4da5.chunk.js.map"
+    "main.8d4b09b4.css.map": "/Launch-Technologies.github.io/static/css/main.8d4b09b4.css.map",
+    "main.d646fe65.js.map": "/Launch-Technologies.github.io/static/js/main.d646fe65.js.map",
+    "787.01fcf905.chunk.js.map": "/Launch-Technologies.github.io/static/js/787.01fcf905.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e30f1eba.css",
-    "static/js/main.d8aeee5e.js"
+    "static/css/main.8d4b09b4.css",
+    "static/js/main.d646fe65.js"
   ]
 }
