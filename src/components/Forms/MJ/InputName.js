@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
 import { NewMJContext } from 'context/NewMJProvider';
 
-const InputName = ({ form }) => {
-  const MJcontext = useContext(NewMJContext);
+const InputName = () => {
+  const { forms, setFieldValue } = useContext(NewMJContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -11,20 +11,19 @@ const InputName = ({ form }) => {
   }, []);
 
   const onChangeInput = (e) => {
-    MJcontext.setFieldValue('task_name', e.target.value);
+    setFieldValue('task_name', e.target.value);
   };
 
   return (
     <Form
-      form={form}
       layout="vertical"
       name="form_in_modal"
       initialValues={{
-        modifier: 'public',
+        task_name: forms.get('task_name'),
       }}
     >
       <Form.Item
-        name="name"
+        name="task_name"
         label="required"
         rules={[
           {

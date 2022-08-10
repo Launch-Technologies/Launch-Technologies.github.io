@@ -2,24 +2,23 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
 import { NewMJContext } from 'context/NewMJProvider';
 
-const InputBrief = ({ form }) => {
-  const MJcontext = useContext(NewMJContext);
+const InputBrief = () => {
+  const { forms, setFieldValue } = useContext(NewMJContext);
   const inputBrief = useRef(null);
   useEffect(() => {
     inputBrief.current.focus();
   }, []);
 
   const onChangeInput = (e) => {
-    MJcontext.setFieldValue('brief', e.target.value);
+    setFieldValue('brief', e.target.value);
   };
 
   return (
     <Form
-      form={form}
       layout="vertical"
       name="form_in_modal"
       initialValues={{
-        modifier: 'public',
+        brief: forms.get('brief'),
       }}
     >
       <Form.Item

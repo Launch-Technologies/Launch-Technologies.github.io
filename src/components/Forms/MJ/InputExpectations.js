@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
 import { NewMJContext } from 'context/NewMJProvider';
 
-const InputExpectations = ({ form }) => {
-  const { setFieldValue } = useContext(NewMJContext);
+const InputExpectations = () => {
+  const { forms, setFieldValue } = useContext(NewMJContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -16,15 +16,14 @@ const InputExpectations = ({ form }) => {
 
   return (
     <Form
-      form={form}
       layout="vertical"
       name="form_in_modal"
       initialValues={{
-        modifier: 'public',
+        expectations: forms.get('expectations'),
       }}
     >
       <Form.Item
-        name="expectation"
+        name="expectations"
         label=""
         rules={[
           {

@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
 import { NewMJContext } from 'context/NewMJProvider';
 
-const InputRenum = ({ form }) => {
-  const { setFieldValue } = useContext(NewMJContext);
+const InputRenum = () => {
+  const { forms, setFieldValue } = useContext(NewMJContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -16,11 +16,10 @@ const InputRenum = ({ form }) => {
 
   return (
     <Form
-      form={form}
       layout="vertical"
       name="form_in_modal"
       initialValues={{
-        modifier: 'public',
+        remuneration: forms.get('remuneration'),
       }}
     >
       <Form.Item

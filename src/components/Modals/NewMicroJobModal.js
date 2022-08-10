@@ -1,18 +1,23 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import { Form, Modal, message } from 'antd';
+import { Modal, message } from 'antd';
 import MicroJobService from 'api/micro-job';
 import { NewMJContext } from 'context/NewMJProvider';
+import { useUser } from 'context/user';
 import { NewForms, title } from 'components/Forms/MJ';
 import './Modal.scoped.css';
 
 const { confirm } = Modal;
 
 const NewMicroJobModal = ({ visible, setshowForm }) => {
-  const { resetForm, forms } = useContext(NewMJContext);
+  const { userData } = useUser();
+  const { resetForm, forms, setFieldValue } = useContext(NewMJContext);
   const microjobService = new MicroJobService();
   const [order, setorder] = useState(1);
-  const [form] = Form.useForm();
+
+  useEffect(() => {
+    setFieldValue('company_id', userData.id);
+  }, []);
 
   const onNext = () => {
     return setorder(order + 1);
@@ -36,7 +41,7 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
       icon: <ExclamationCircleOutlined />,
       className: 'modal_new',
       onOk() {
-        const res = microjobService.postMicroJob([forms]);
+        const res = microjobService.postMicroJob(forms);
         res.then((e) => {
           if (e.status == 'Ok') {
             setorder(1);
@@ -67,7 +72,7 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
       onOk={order === 9 ? onFinish : onNext}
       width={500}
     >
-      <NewForms order={order} {...{ form }} />
+      <NewForms order={order} />
     </Modal>
   );
 };

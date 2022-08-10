@@ -12,12 +12,12 @@ import './MicroJob.scoped.css';
 
 const { Option } = Select;
 const MicroJob = () => {
-  const { userData } = useUser();
   const [showForm, setshowForm] = useState(false);
-  const microjobService = new MicroJobService();
   const [microjobs, setmicrojobs] = useState([]);
   const [filter, setfilter] = useState({});
   const [fetched, setfetched] = useState(false);
+  const { userData } = useUser();
+  const microjobService = new MicroJobService();
   let cancelToken;
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const MicroJob = () => {
       setmicrojobs(fetched);
     };
     fetchMicroJobs();
-  }, [filter]);
+  }, [filter, showForm]);
 
   useEffect(() => {
     setfetched(true);
@@ -147,7 +147,11 @@ const MicroJob = () => {
         </Row>
       </section>
       <NewMJContextProvider>
-        <NewMicroJobModal visible={showForm} setshowForm={setshowForm} />
+        <NewMicroJobModal
+          visible={showForm}
+          setshowForm={setshowForm}
+          setmicrojobs={setmicrojobs}
+        />
       </NewMJContextProvider>
     </Dashboard>
   );

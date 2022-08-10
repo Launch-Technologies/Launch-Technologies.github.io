@@ -19,26 +19,26 @@ let title = {
   8: 'Write a Checkpoint',
   9: 'Upload Relevant Files',
 };
-const NewForms = ({ order, form }) => {
+const NewForms = ({ order }) => {
   switch (order) {
     case 1:
-      return <InputName {...{ form }} />;
+      return <InputName />;
     case 2:
-      return <UploadPhoto {...{ form }} />;
+      return <UploadPhoto />;
     case 3:
-      return <InputBrief {...{ form }} />;
+      return <InputBrief />;
     case 4:
-      return <SelectBadges {...{ form }} />;
+      return <SelectBadges />;
     case 5:
-      return <InputRenum {...{ form }} />;
+      return <InputRenum />;
     case 6:
-      return <InputExpectations {...{ form }} />;
+      return <InputExpectations />;
     case 7:
-      return <InputCareerP {...{ form }} />;
+      return <InputCareerP />;
     case 8:
-      return <InputCheckPoint {...{ form }} />;
+      return <InputCheckPoint />;
     default: // 9
-      return <UploadRelFiles {...{ form }} />;
+      return <UploadRelFiles />;
   }
 };
 

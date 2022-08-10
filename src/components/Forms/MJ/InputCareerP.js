@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { Form, Input } from 'antd';
 import { NewMJContext } from 'context/NewMJProvider';
 
-const InputCareerP = ({ form }) => {
-  const MJcontext = useContext(NewMJContext);
+const InputCareerP = () => {
+  const { forms, setFieldValue } = useContext(NewMJContext);
 
   const inputCareerP = useRef(null);
   useEffect(() => {
@@ -11,20 +11,19 @@ const InputCareerP = ({ form }) => {
   }, []);
 
   const onChangeInput = (e) => {
-    MJcontext.setFieldValue('career_prospects', e.target.value);
+    setFieldValue('career_prospects', e.target.value);
   };
 
   return (
     <Form
-      form={form}
       layout="vertical"
       name="form_in_modal"
       initialValues={{
-        modifier: 'public',
+        career_prospects: forms.get('career_prospects'),
       }}
     >
       <Form.Item
-        name="career_prospect"
+        name="career_prospects"
         label=""
         rules={[
           {
