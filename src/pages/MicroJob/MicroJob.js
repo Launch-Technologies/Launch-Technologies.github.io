@@ -34,13 +34,10 @@ const MicroJob = () => {
         cancelToken.token
       );
       setmicrojobs(fetched);
+      setfetched(true);
     };
     fetchMicroJobs();
   }, [filter, showForm]);
-
-  useEffect(() => {
-    setfetched(true);
-  }, [microjobs]);
 
   const sortMicroJob = (value) => {
     setmicrojobs([]);

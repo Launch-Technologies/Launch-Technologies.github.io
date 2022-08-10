@@ -23,7 +23,7 @@ const fileIsValid = (file) => {
 };
 
 const UploadRelFiles = () => {
-  const { upload_relevant_files, setFieldValue } = useContext(NewMJContext);
+  const { upload_relevant_files, setRelevantFiles } = useContext(NewMJContext);
 
   const handleChange = (info) => {
     getBase64(info.file.originFileObj, (url) => {
@@ -33,11 +33,7 @@ const UploadRelFiles = () => {
       } else {
         if (fileIsValid(info.file)) {
           if (!upload_relevant_files.map((e) => e.url).includes(url)) {
-            setFieldValue(
-              'upload_relevant_files',
-              [...upload_relevant_files, { url: url }],
-              true
-            );
+            setRelevantFiles([...upload_relevant_files, { url: url }]);
           }
         }
       }
@@ -46,11 +42,7 @@ const UploadRelFiles = () => {
   };
 
   const onRemovePhoto = (e) => {
-    setFieldValue(
-      'upload_relevant_files',
-      [...upload_relevant_files.filter((f) => f.url !== e.url)],
-      true
-    );
+    setRelevantFiles([...upload_relevant_files.filter((f) => f.url !== e.url)]);
   };
 
   const uploadButton = (

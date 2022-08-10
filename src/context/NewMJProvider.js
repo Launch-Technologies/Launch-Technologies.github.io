@@ -57,6 +57,13 @@ const NewMicroJobContext = ({ children }) => {
     });
   };
 
+  const setRelevantFiles = (data) => {
+    dispatch({
+      type: 'SET_RELEVANT_FILES',
+      payload: data,
+    });
+  };
+
   return (
     <NewMJContext.Provider
       value={{
@@ -65,6 +72,7 @@ const NewMicroJobContext = ({ children }) => {
         fetchSkills,
         resetForm,
         setSelectedSkill,
+        setRelevantFiles,
       }}
     >
       {children}

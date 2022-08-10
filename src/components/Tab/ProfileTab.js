@@ -31,7 +31,7 @@ const ProfileTab = () => {
           backgroundColor: '#fde3cf',
         }}
       >
-        {userData.name.substr(0, 1)}
+        {userData.name.substr(0, 1).toUpperCase()}
       </Avatar>
     );
   };

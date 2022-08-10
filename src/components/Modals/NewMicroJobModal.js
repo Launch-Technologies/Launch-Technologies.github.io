@@ -11,8 +11,13 @@ const { confirm } = Modal;
 
 const NewMicroJobModal = ({ visible, setshowForm }) => {
   const { userData } = useUser();
-  const { resetForm, forms, setFieldValue, selected_skills } =
-    useContext(NewMJContext);
+  const {
+    resetForm,
+    forms,
+    setFieldValue,
+    selected_skills,
+    upload_relevant_files,
+  } = useContext(NewMJContext);
   const microjobService = new MicroJobService();
   const [order, setorder] = useState(1);
 
@@ -24,15 +29,22 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
     return setorder(order + 1);
   };
 
-  const onPrevious = () => {
-    return setorder(order - 1);
+  const onPrevious = (e) => {
+    if (['BUTTON', 'SPAN'].includes(e.target.nodeName) && order > 1) {
+      return setorder(order - 1);
+    }
+    return onHideModal();
   };
 
   const onHideModal = () => {
+    setorder(1);
     return setshowForm(false);
   };
 
-  const onCancel = () => {
+  const onCancel = (e) => {
+    if (['BUTTON', 'SPAN'].includes(e.target.nodeName)) {
+      return onPrevious(e);
+    }
     return onHideModal();
   };
 
@@ -50,6 +62,17 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
                 micro_job_id: e.data.id,
                 skill_id: f,
               });
+            });
+
+            upload_relevant_files.map((g) => {
+              let fd = new FormData();
+              fetch(g.url)
+                .then((res) => res.blob())
+                .then((blob) => {
+                  fd.append('micro_job_id', e.data.id);
+                  fd.append('file_path', blob, 'file.jpg');
+                  microjobService.postMicroJobFiles(fd);
+                });
             });
 
             setorder(1);
