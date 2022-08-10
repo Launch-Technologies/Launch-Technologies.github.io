@@ -2,8 +2,30 @@ import React from 'react';
 import { CaretLeftOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
 import 'pages/SignUp/SignUp.scoped.css';
+import { useSignup } from '../hooks/useSignup';
 
 const SignUpForm = ({ setform }) => {
+  const {
+    onSignup,
+    fullName,
+    changeFullName,
+    email,
+    changeEmail,
+    password,
+    changePassword,
+    changePassword2,
+    checkToc,
+    setCheckToc,
+    errorMsgUplaod,
+  } = useSignup(null, true);
+
+  const onClickSignUp = () => {
+    onSignup({
+      name: fullName,
+      email: email,
+      password: password,
+    });
+  };
   return (
     <Row>
       <Col>
@@ -15,6 +37,9 @@ const SignUpForm = ({ setform }) => {
           }}
           onFinish={true}
         >
+          <div style={{ color: 'red', marginTop: '10px' }}>
+            {errorMsgUplaod}
+          </div>
           <Form.Item>
             <Button
               type="link"
@@ -31,17 +56,19 @@ const SignUpForm = ({ setform }) => {
           </Form.Item>
           <Form.Item
             name="fullname"
+            onChange={(e) => changeFullName(e.target.value)}
             rules={[
               {
                 required: true,
-                message: 'Please input your name!',
+                message: 'Please input your company name',
               },
             ]}
           >
-            <Input className="input_form" placeholder="Fullname" />
+            <Input className="input_form" placeholder="Company Name" />
           </Form.Item>
           <Form.Item
             name="email"
+            onChange={(e) => changeEmail(e.target.value)}
             rules={[
               {
                 required: true,
@@ -49,7 +76,7 @@ const SignUpForm = ({ setform }) => {
               },
             ]}
           >
-            <Input className="input_form" placeholder="E-mail" />
+            <Input className="input_form" placeholder="E-mail company" />
           </Form.Item>
           <Form.Item
             name="password"
@@ -69,6 +96,7 @@ const SignUpForm = ({ setform }) => {
           <Form.Item
             name="confirm"
             dependencies={['password']}
+            onChange={(e) => changePassword(e.target.value)}
             rules={[
               {
                 required: true,
@@ -90,6 +118,7 @@ const SignUpForm = ({ setform }) => {
             ]}
           >
             <Input
+              onChange={(e) => changePassword2(e.target.value)}
               className="input_form"
               type="password"
               placeholder="Confirm Password"
@@ -107,7 +136,10 @@ const SignUpForm = ({ setform }) => {
               },
             ]}
           >
-            <Checkbox className="terms_policy_checkbox">
+            <Checkbox
+              className="terms_policy_checkbox"
+              onChange={() => setCheckToc(!checkToc)}
+            >
               I agree to JobLaunch's{' '}
               <a href="https://www.joblaunch.co/termsandconditions">
                 Terms and Conditions
@@ -121,8 +153,9 @@ const SignUpForm = ({ setform }) => {
           <Form.Item>
             <Button
               type="primary"
-              htmlType="submit"
+              // htmlType="submit"
               className="signup_form_button"
+              onClick={onClickSignUp}
             >
               Sign Up
             </Button>

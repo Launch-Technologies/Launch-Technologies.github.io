@@ -3,7 +3,7 @@ import AuthService from 'api/auth';
 import { useUser } from 'context/user';
 import { isValidEmail } from 'helper';
 import _ from 'lodash';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useInput } from './useInput';
 
 export const useSignup = (emailAcc, validate = false) => {
@@ -16,7 +16,7 @@ export const useSignup = (emailAcc, validate = false) => {
   const [checkToc, setCheckToc] = useState(false);
   const authService = new AuthService();
   const userData = useUser();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   async function onSignup(data, direct_to) {
     console.log('tokenResponse signup', data);
@@ -46,9 +46,7 @@ export const useSignup = (emailAcc, validate = false) => {
       console.log('User has been registered, login to use application', {
         appearance: 'success',
       });
-      history.push({
-        pathname: direct_to || '/little-bit-about-you',
-      });
+      navigate(direct_to || '/micro-jobs');
     } else {
       setErrorMsgUplaod('Email already registered');
     }
