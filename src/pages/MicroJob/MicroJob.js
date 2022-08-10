@@ -7,10 +7,12 @@ import NewMJContextProvider from 'context/NewMJProvider';
 import MicroJobCard from 'components/Cards/Card';
 import Dashboard from 'components/Dashboard/Dashboard';
 import NewMicroJobModal from 'components/Modals/NewMicroJobModal';
+import { useUser } from '../../context/user';
 import './MicroJob.scoped.css';
 
 const { Option } = Select;
 const MicroJob = () => {
+  const { userData } = useUser();
   const [showForm, setshowForm] = useState(false);
   const microjobService = new MicroJobService();
   const [microjobs, setmicrojobs] = useState([]);
@@ -25,7 +27,10 @@ const MicroJob = () => {
       }
       cancelToken = axios.CancelToken.source();
       let fetched = await microjobService.fetchMicroJob(
-        filter,
+        {
+          company_id: userData.id,
+          ...filter,
+        },
         cancelToken.token
       );
       setmicrojobs(fetched);
