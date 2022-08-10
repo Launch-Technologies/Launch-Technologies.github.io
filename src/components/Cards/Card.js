@@ -12,9 +12,7 @@ const Card = ({ id, cover_photo, task_name }) => {
     : 'https://dev.joblaunch.co/api' + cover_photo;
 
   const onLoaded = () => {
-    setTimeout(() => {
-      setloading(false);
-    }, 1000);
+    setloading(false);
   };
 
   const CoverImage = () => {
