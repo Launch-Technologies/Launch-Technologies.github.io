@@ -6,6 +6,10 @@ export const NewMJContext = createContext();
 
 const NewMicroJobContext = ({ children }) => {
   const fd = new FormData();
+  fd.set(
+    'checkpoints',
+    '{"cp0":"not yet started","cp100":"Micro-Job Completed"}'
+  );
   const initialState = {
     forms: fd,
     skills: [],

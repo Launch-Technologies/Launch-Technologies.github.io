@@ -29,9 +29,14 @@ const MJReducer = (state, action) => {
       };
 
     case 'RESET_FORM':
+      const newFd = new FormData();
+      newFd.set(
+        'checkpoints',
+        '{"cp0":"not yet started","cp100":"Micro-Job Completed"}'
+      );
       return {
         ...state,
-        forms: new FormData(),
+        forms: newFd,
       };
 
     case 'GET_SKILLS':
