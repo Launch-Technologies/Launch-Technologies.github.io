@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import { Button, Col, Input, Row, Select, Spin } from 'antd';
+import { Button, Col, Empty, Input, Row, Select, Spin } from 'antd';
 import MicroJobService from 'api/micro-job';
 import axios from 'axios';
 import NewMJContextProvider from 'context/NewMJProvider';
@@ -39,7 +39,7 @@ const MicroJob = () => {
   }, [filter]);
 
   useEffect(() => {
-    microjobs.length > 0 ? setfetched(true) : setfetched(false);
+    setfetched(true);
   }, [microjobs]);
 
   const sortMicroJob = (value) => {
@@ -121,6 +121,15 @@ const MicroJob = () => {
               <Spin className="fetch_mj_spinner" size="large"></Spin>
             </Col>
           </Row>
+        )}
+        {fetched && !microjobs.length > 0 && (
+          <Empty
+            image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+            imageStyle={{
+              height: 150,
+              marginTop: '25%',
+            }}
+          ></Empty>
         )}
         <Row align="top" className="row_content" gutter={[25, 25]}>
           {microjobs.map((e) => {
