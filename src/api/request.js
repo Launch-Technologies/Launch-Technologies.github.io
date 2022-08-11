@@ -3,8 +3,8 @@ import { getToken, logout, updateUserTokenOnly } from '../auth';
 
 const baseURL =
   process.env.NODE_ENV === 'development'
-    ? 'https://dev.joblaunch.co/api'
-    : '/api';
+    ? process.env.REACT_APP_API_URL_DEV
+    : process.env.REACT_APP_API_URL;
 
 const refreshToken = function () {
   const token = getToken();
