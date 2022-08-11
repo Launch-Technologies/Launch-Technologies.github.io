@@ -12,9 +12,9 @@ const items1 = ['Microjobs', 'Events'].map((key) => ({
 }));
 const items2 = [LaptopOutlined].map((icon, index) => {
   return {
-    key: `MicroJobs`,
+    key: `Jobs`,
     icon: React.createElement(icon),
-    label: `MicroJobs`,
+    label: `Jobs`,
     children: ['Progress Tracker', 'Submissions'].map((_, j) => {
       const subKey = index * 4 + j + 1;
       return {
@@ -61,7 +61,7 @@ const Dashboard = ({ children }) => (
           mode="inline"
           // theme='dark'
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={['MicroJobs']}
+          defaultOpenKeys={['Jobs']}
           style={{
             height: '100%',
             borderRight: 0,

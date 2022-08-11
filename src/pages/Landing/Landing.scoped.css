@@ -3,6 +3,17 @@
   margin: 16px 0 16px 24px;
 }
 
+.logo_right {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  margin-right: 20px !important;
+}
+
+.logo_right >>> .ant-btn-link {
+  color: black !important;
+}
+
 #content-grid * {
   z-index: 5;
 }

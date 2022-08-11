@@ -24,6 +24,14 @@ const Landing = () => {
         <div className="logo">
           <Link to="/rer">Launch</Link>
         </div>
+        <div className="logo_right">
+          <Link to="/sign-in">
+            <Button size="medium" type="link" className="call_to_action_btn">
+              Sign in
+              <ArrowRightOutlined className="call_to_action_icon" />
+            </Button>
+          </Link>
+        </div>
       </Header>
       <Layout>
         <Content className="site_layout_background">
@@ -52,7 +60,7 @@ const Landing = () => {
             </Row>
             <Row>
               <Col xs={{ span: 15, offset: 3 }} lg={{ span: 4, offset: 2 }}>
-                <Link to="/sign-in">
+                <Link to="/sign-up">
                   <Button size="large" className="call_to_action_btn">
                     {LANDING_BTN_TEXT}
                     <ArrowRightOutlined className="call_to_action_icon" />
