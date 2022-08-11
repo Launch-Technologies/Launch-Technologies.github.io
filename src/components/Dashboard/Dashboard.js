@@ -13,7 +13,7 @@ const items1 = ['Microjobs', 'Events'].map((key) => ({
 const items2 = [LaptopOutlined].map((icon, index) => {
   return {
     key: `Jobs`,
-    icon: React.createElement(icon),
+    // icon: React.createElement(icon),
     label: `Jobs`,
     children: ['Progress Tracker', 'Submissions'].map((_, j) => {
       const subKey = index * 4 + j + 1;
@@ -47,15 +47,16 @@ const Dashboard = ({ children }) => (
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
-          // console.log(broken);
+          console.log('🚀 ~ broken', broken);
         }}
         onCollapse={(collapsed, type) => {
-          // console.log(collapsed, type);
+          console.log('🚀 ~ collapsed, typ', collapsed, type);
         }}
         width={250}
         className="sider"
         style={{ paddingTop: 64, height: '100vh' }}
       >
+        <div className="title_sider">Admin Dashboard</div>
         <Menu
           className="sider_background"
           mode="inline"
@@ -72,6 +73,7 @@ const Dashboard = ({ children }) => (
       <Layout
         style={{
           padding: '0 24px 24px',
+          overflow: 'initial',
         }}
       >
         <Content
