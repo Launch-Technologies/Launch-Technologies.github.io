@@ -14,12 +14,149 @@
   color: black !important;
 }
 
-#content-grid * {
+.content-grid * {
   z-index: 5;
 }
 
-#content-grid {
+.content-grid {
   margin-top: 40vh;
+}
+
+#content-grid-brief {
+  z-index: 6;
+  background-color: white;
+}
+
+.content-grid-brief {
+  /* height: 517px; */
+  margin: 75px 0;
+}
+
+.content-grid-brief-row{
+  margin: 20px;
+  text-align: center;
+}
+
+.landing_btn {
+  font-size: 20px;
+  background-color: #942CFC;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border:none;
+  font-weight: 700;
+  color: white;
+  height: 3em;
+  margin-right: 10px;
+}
+
+.btn_white {
+  background-color: white;
+  color: #942CFC
+}
+
+
+.landing_btn_circle {
+  border-radius: 50%;  
+  width: 3.2em;
+  height: 3.2em;
+  margin-right: 1.5em;
+}
+
+.btn_small {
+  font-size: 16px !important;
+  height: 2.5em;
+}
+
+
+#content-grid-desc {
+  z-index: 6;
+
+  background-color: #F9F3FF;
+}
+
+.content-grid-desc-row{
+  margin: 20px;
+  text-align: left;
+}
+
+#content-grid-talent {
+  z-index: 6;
+  background-color: white;
+}
+
+.content-grid-talent-row{
+  margin: 20px 50px;
+  text-align: left;
+}
+.card_talent {
+  margin: 15px;
+  border-radius: 10px !important;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative !important;
+}
+
+.img_card_talent {
+  height: 235px;
+  border-radius: 10px !important;
+  width: 300px;
+  object-fit: cover;
+}
+
+.talent_name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: .5em;
+}
+
+.talent_job {
+  margin-bottom: .5em;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.talent_desc {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 0;
+}
+
+
+.student_number {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1;
+  text-align: center;
+}
+
+.student_btn {
+  height: 96px;
+  padding: 15px
+}
+
+.btn_desc {
+  font-size: 24px;
+}
+
+.img_partner {
+  max-width: 400px;
+}
+
+#content_footer {
+  z-index: 6;
+  background: #942cfc;
+  height: 221px;
 }
 
 .site_layout_background {
@@ -40,6 +177,7 @@
 .ant-card {
   width: fit-content;
   position: fixed;
+  /* overflow-x: auto; */
 }
 
 .ant-card-body {
