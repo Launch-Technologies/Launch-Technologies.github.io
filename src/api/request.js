@@ -1,10 +1,7 @@
 import axios from 'axios';
 import { getToken, logout, updateUserTokenOnly } from '../auth';
 
-const baseURL =
-  process.env.NODE_ENV === 'development'
-    ? process.env.REACT_APP_API_URL_DEV
-    : process.env.REACT_APP_API_URL;
+const baseURL = process.env.REACT_APP_API;
 
 const refreshToken = function () {
   const token = getToken();

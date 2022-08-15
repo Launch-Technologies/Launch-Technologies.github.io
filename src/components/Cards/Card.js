@@ -9,7 +9,7 @@ const Card = ({ id, cover_photo, task_name }) => {
     'https://app.joblaunch.co/assets/img/Micro%20Task.png';
   const coverPhotos = ['null', 'None'].includes(cover_photo)
     ? defaulCoverPhoto
-    : process.env.REACT_APP_API_URL_DEV + cover_photo;
+    : process.env.REACT_APP_API + cover_photo;
 
   const onLoaded = () => {
     setloading(false);

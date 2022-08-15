@@ -1,15 +1,8 @@
 import _ from 'lodash';
 import { createAuthProvider } from 'react-token-auth';
 
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-console.log(
-  '🚀 ~ process.env.REACT_APP_API_URL',
-  process.env.REACT_APP_API_URL
-);
-const baseURL =
-  process.env.NODE_ENV === 'development'
-    ? 'https://dev.joblaunch.co/api'
-    : 'https://dev.joblaunch.co/api';
+// TODO fix env set it on github pages env
+const baseURL = process.env.REACT_APP_API;
 
 export const { useAuth, authFetch, login, logout } = createAuthProvider({
   accessTokenKey: 'access_token',

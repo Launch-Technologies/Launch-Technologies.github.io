@@ -1,10 +1,7 @@
 import { createAuthProvider } from 'react-token-auth';
 import { isEmpty } from './utils';
 
-const baseURL =
-  process.env.NODE_ENV === 'development'
-    ? process.env.REACT_APP_API_URL
-    : '/api';
+const baseURL = process.env.REACT_APP_API;
 
 export const [useAuth, authFetch, login, logout] = createAuthProvider({
   accessTokenKey: 'access_token',
