@@ -9,7 +9,9 @@ const Card = ({ id, cover_photo, task_name }) => {
     'https://app.joblaunch.co/assets/img/Micro%20Task.png';
   const coverPhotos = ['null', 'None'].includes(cover_photo)
     ? defaulCoverPhoto
-    : process.env.REACT_APP_API + cover_photo;
+    : // TODO fix env set it on github pages env
+      // : process.env.REACT_APP_API + cover_photo;
+      'https://dev.joblaunch.co/api' + cover_photo;
 
   const onLoaded = () => {
     setloading(false);

@@ -41,7 +41,9 @@ const MicroJobDetails = () => {
                 setfetched(true);
                 microjob_.cover_photo && microjob_.cover_photo !== 'None'
                   ? setcoverPhoto(
-                      process.env.REACT_APP_API + microjob_.cover_photo
+                      // TODO fix env set it on github pages env
+                      // process.env.REACT_APP_API + microjob_.cover_photo
+                      'https://dev.joblaunch.co/api' + microjob_.cover_photo
                     )
                   : setcoverPhoto(
                       'https://app.joblaunch.co/assets/img/Cohort%20UIUX.png'
