@@ -1,0 +1,20 @@
+.badges_logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+}
+.badges_container {
+  padding: 20px !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.attachment_container {
+  padding: 20px 0 0
+}
+
+.empty_detail {
+  margin: 15px;
+}

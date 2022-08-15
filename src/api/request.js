@@ -61,7 +61,7 @@ const request = function (options) {
   };
 
   const onError = function (error) {
-    if (!error.code == 'ERR_CANCELED') {
+    if (!error.code === 'ERR_CANCELED') {
       console.error('Request Failed:', error);
       console.error('Error Message:', error.message);
       if (error.response) {

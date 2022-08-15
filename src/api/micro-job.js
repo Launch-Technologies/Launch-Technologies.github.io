@@ -37,6 +37,11 @@ class MicroJobService extends CrudApi {
     return result.data;
   }
 
+  async fetchMicroJobFiles(params) {
+    let result = await this.get(`/micro-job-files`, params);
+    return result.data;
+  }
+
   /** POST API */
   async postMicroJob(params) {
     let result = await this.post(`/micro-jobs`, params);
@@ -85,7 +90,7 @@ class MicroJobService extends CrudApi {
 
   /** PATCH API */
   async patchMicroJob(id, params) {
-    let result = await this.patch(`/micro-jobs/${id}`, params);
+    let result = await this.patch(`/micro-job/${id}`, params);
     return result;
   }
 
