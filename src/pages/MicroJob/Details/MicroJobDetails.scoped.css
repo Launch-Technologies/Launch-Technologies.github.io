@@ -4,7 +4,41 @@
   top: 35vh;
 }
 
-.signup_form_back_btn {
+.title_container {
+  background-color: rgba(0, 0, 0, .8);
+  margin: 0 auto;
+  padding: 0 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+}
+
+.title {
+  color: white;
+  text-align: center;
+  margin-bottom: 0;
+  line-height: 2;
+  opacity: 100%;
+}
+
+.back_btn {
   font-size: 15px;
   color: #000000;
+  background-color: #FEA1A1;
+  border-color: #FEA1A1;
+  border-radius: 5px;
+  top: 10px;
+  left: 10px
+}
+
+#section_bg_cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#section_detail {
+  margin-top: 20px
 }
