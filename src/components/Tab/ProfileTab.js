@@ -13,7 +13,8 @@ const ProfileTab = () => {
   const navigate = useNavigate();
 
   const onLogout = () => {
-    logout();
+    // NOTE fix this
+    // logout();
     navigate('/');
   };
 

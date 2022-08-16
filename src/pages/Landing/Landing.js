@@ -25,9 +25,10 @@ const Landing = () => {
   const speed = 10;
   const refNumber = useRef();
 
-  useEffect(() => {
-    logged && navigate('/micro-jobs');
-  }, [logged]);
+  // NOTE fix this
+  // useEffect(() => {
+  //   logged && navigate('/micro-jobs');
+  // }, [logged]);
 
   const incEltNbr = (id) => {
     let elt = document.getElementById(id);
@@ -70,7 +71,7 @@ const Landing = () => {
     document.addEventListener(
       'scroll',
       function () {
-        if (refNumber.current.innerHTML == 0) {
+        if ((refNumber.current && refNumber.current.innerHTML) == 0) {
           isInViewport(box) && incNbr();
         }
       },
@@ -106,7 +107,7 @@ const Landing = () => {
                   Sign Up
                 </Button>
               </Link>
-              <Link to="/sign-up">
+              <Link to="/sign-in">
                 <Button
                   size="large"
                   className="landing_btn btn_white btn_small"
