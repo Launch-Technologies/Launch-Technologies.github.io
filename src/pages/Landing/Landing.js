@@ -94,7 +94,7 @@ const Landing = () => {
               </Col>
             </Row>
             <Row>
-              <Col xs={{ span: 15, offset: 3 }} lg={{ span: 12, offset: 2 }}>
+              <Col xs={{ span: 22, offset: 2 }} lg={{ span: 12, offset: 2 }}>
                 <Link to="/sign-up">
                   <Button
                     size="large"
@@ -174,63 +174,96 @@ const Landing = () => {
             </Row>
             <Row
               className="content-grid-desc-row"
-              justify="space-evenly"
+              justify="center"
               align="middle"
             >
               <Col
                 xs={{ span: 24 }}
-                lg={{ span: 12, offset: 2 }}
-                style={{ whiteSpace: 'nowrap' }}
+                sm={{ span: 3 }}
+                md={{ span: 3 }}
+                lg={{ span: 3 }}
+                xl={{ span: 2 }}
               >
                 <Button
                   size="large"
-                  className="landing_btn landing_btn_circle btn_desc"
+                  className="landing_btn landing_btn_circle btn_desc mt-1 mr-1"
                 >
                   1
                 </Button>
-                <Button size="large" className="landing_btn btn_white btn_desc">
+              </Col>
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                md={{ span: 8 }}
+                lg={{ span: 6 }}
+                xl={{ span: 3 }}
+              >
+                <Button
+                  size="large"
+                  className="landing_btn btn_white btn_desc mt-1"
+                >
                   Post a job on Launch
                 </Button>
               </Col>
             </Row>
             <Row
               className="content-grid-desc-row"
-              justify="space-evenly"
+              justify="center"
               align="middle"
             >
               <Col
                 xs={{ span: 24 }}
-                lg={{ span: 12, offset: 2 }}
-                style={{ whiteSpace: 'nowrap' }}
+                sm={{ span: 3 }}
+                md={{ span: 3 }}
+                lg={{ span: 3 }}
+                xl={{ span: 2 }}
               >
                 <Button
                   size="large"
-                  className="landing_btn landing_btn_circle btn_desc"
+                  className="landing_btn landing_btn_circle btn_desc mt-1 mr-1"
                 >
                   2
                 </Button>
-                <Button size="large" className="landing_btn btn_white btn_desc">
+              </Col>
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                md={{ span: 8 }}
+                lg={{ span: 6 }}
+                xl={{ span: 3 }}
+              >
+                <Button className="landing_btn btn_white btn_desc mt-1">
                   We connect you with our best talent
                 </Button>
               </Col>
             </Row>
             <Row
               className="content-grid-desc-row"
-              justify="space-evenly"
+              justify="center"
               align="middle"
             >
               <Col
                 xs={{ span: 24 }}
-                lg={{ span: 12, offset: 2 }}
-                style={{ whiteSpace: 'nowrap' }}
+                sm={{ span: 3 }}
+                md={{ span: 3 }}
+                lg={{ span: 3 }}
+                xl={{ span: 2 }}
               >
                 <Button
                   size="large"
-                  className="landing_btn landing_btn_circle btn_desc"
+                  className="landing_btn landing_btn_circle btn_desc mt-1 mr-1"
                 >
-                  1
+                  3
                 </Button>
-                <Button size="large" className="landing_btn btn_white btn_desc">
+              </Col>
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                md={{ span: 8 }}
+                lg={{ span: 6 }}
+                xl={{ span: 3 }}
+              >
+                <Button className="landing_btn btn_white btn_desc mt-1">
                   Your job, done.
                 </Button>
               </Col>
@@ -251,7 +284,12 @@ const Landing = () => {
               justify="space-evenly"
               align="middle"
             >
-              <Col xs={{ span: 24 }} lg={{ span: 6 }}>
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                lg={{ span: 8 }}
+                xl={{ span: 6 }}
+              >
                 <Card
                   hoverable
                   className="card_talent"
@@ -274,7 +312,12 @@ const Landing = () => {
                   </div>
                 </Card>
               </Col>
-              <Col xs={{ span: 24 }} lg={{ span: 6 }}>
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                lg={{ span: 8 }}
+                xl={{ span: 6 }}
+              >
                 <Card
                   hoverable
                   className="card_talent"
@@ -297,7 +340,12 @@ const Landing = () => {
                   </div>
                 </Card>
               </Col>
-              <Col xs={{ span: 24 }} lg={{ span: 6 }}>
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                lg={{ span: 8 }}
+                xl={{ span: 6 }}
+              >
                 <Card
                   hoverable
                   className="card_talent"
@@ -320,7 +368,12 @@ const Landing = () => {
                   </div>
                 </Card>
               </Col>
-              <Col xs={{ span: 24 }} lg={{ span: 6 }}>
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                lg={{ span: 8 }}
+                xl={{ span: 6 }}
+              >
                 <Card
                   hoverable
                   className="card_talent"
@@ -353,7 +406,7 @@ const Landing = () => {
               justify="space-evenly"
               align="middle"
             >
-              <Col span={8}>
+              <Col span={24}>
                 <Title style={{ textAlign: 'center', fontSize: 48 }} level={2}>
                   We have
                 </Title>
@@ -440,7 +493,7 @@ const Landing = () => {
             </Row>
             <Row justify="space-evenly" align="middle">
               <Col
-                xs={{ span: 12 }}
+                xs={{ span: 24 }}
                 lg={{ span: 12 }}
                 style={{ textAlign: 'center' }}
               >

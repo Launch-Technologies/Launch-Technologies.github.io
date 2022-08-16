@@ -46,7 +46,6 @@
   font-weight: 700;
   color: white;
   height: 3em;
-  margin-right: 10px;
 }
 
 .btn_white {
@@ -99,7 +98,7 @@
 .img_card_talent {
   height: 235px;
   border-radius: 10px !important;
-  width: 300px;
+  min-width: 300px;
   object-fit: cover;
 }
 
@@ -146,11 +145,12 @@
 }
 
 .btn_desc {
-  font-size: 24px;
+  /* font-size: 24px; */
 }
 
 .img_partner {
   max-width: 400px;
+  width: -webkit-fill-available
 }
 
 #content_footer {
