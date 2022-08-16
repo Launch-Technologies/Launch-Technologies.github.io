@@ -1,5 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.min.css';
+// import 'antd/dist/antd.css'; // DEBUG
 import { UserProvider } from 'context/user';
 import ReactDOM from 'react-dom/client';
 import App from './App';

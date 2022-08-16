@@ -88,7 +88,7 @@ const Landing = () => {
               fontSize: 32,
               color: '#000',
               fontWeight: 'bold',
-              letterSpacing: -1,
+              fontFamily: 'Roboto',
             }}
           >
             Launch
@@ -152,11 +152,6 @@ const Landing = () => {
                     style={{ marginRight: 50 }}
                   >
                     {LANDING_BTN_TEXT_POST}
-                  </Button>
-                </Link>
-                <Link to="/sign-in">
-                  <Button size="large" className="landing_btn btn_white">
-                    {LANDING_BTN_TEXT_FIND}
                   </Button>
                 </Link>
               </Col>
@@ -494,6 +489,20 @@ const Landing = () => {
         <Content id="content-grid-talent">
           <div className="content-grid-brief">
             <Row
+              className="content-grid-desc-row"
+              justify="space-evenly"
+              align="middle"
+            >
+              <Col span={24}>
+                <Title
+                  style={{ textAlign: 'center', fontSize: 36, marginTop: 50 }}
+                  level={2}
+                >
+                  Partner Companies and Networks
+                </Title>
+              </Col>
+            </Row>
+            <Row
               className="content-grid-talent-row"
               justify="space-evenly"
               align="middle"
@@ -511,20 +520,6 @@ const Landing = () => {
                   src="https://s3-alpha-sig.figma.com/img/c4b0/ca71/f5ecbfeb846ebf58aa8b44f35f4bd40d?Expires=1661731200&Signature=KxOpmidf79zp29j6el54uSQAYxtCaQszJ~bgr3zbMU~YsOySoNIWSX0DKl8hqphVrIXFOg1yTscdMh77rl-NkYKYh~o~mGVnS7QIpR4JjFE3pKpUqpzfEuL88n0~iCm1Arob2hUEA2GhFGHpbUtXsjgQ8r4v1kw8PVv1~qPsuDoLHIhtadX-Wq1HHV47DnVJxNQIN~rAMMD8wsCsgZajx2t~XE8LeHEYtKQ5N5XfDu~~cS4mEEA3C7bkJT8DO9h3oo4-BJSYtwtprsUvYh-qqQQTEKL8P8w6t64FPJqv9As3vZaCOz-CJY6Gpy1BRbCPOt4TIqnm5mDnz8TDfPP4PA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
                   alt=""
                 />
-              </Col>
-            </Row>
-            <Row
-              className="content-grid-desc-row"
-              justify="space-evenly"
-              align="middle"
-            >
-              <Col span={24}>
-                <Title
-                  style={{ textAlign: 'center', fontSize: 36, marginTop: 50 }}
-                  level={2}
-                >
-                  are some of our partner companies and networks
-                </Title>
               </Col>
             </Row>
           </div>

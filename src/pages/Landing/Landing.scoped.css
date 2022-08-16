@@ -145,7 +145,17 @@
 }
 
 .btn_desc {
-  /* font-size: 24px; */
+  cursor: default;
+}
+
+.btn_desc[ant-click-animating-without-extra-node='true']::after,
+.ant-click-animating-node {
+  -webkit-animation: none;
+  animation: none;
+  -webkit-animation-fill-mode: none;
+  animation-fill-mode: none;
+  box-shadow: none
+
 }
 
 .img_partner {
@@ -156,7 +166,7 @@
 #content_footer {
   z-index: 6;
   background: #942cfc;
-  height: 221px;
+  height: 100px;
 }
 
 .site_layout_background {
