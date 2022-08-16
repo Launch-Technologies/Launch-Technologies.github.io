@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { ArrowRightOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Layout, Meta, Row, Typography } from 'antd';
+import React, { useEffect, useRef } from 'react';
+import { Button, Card, Col, Layout, Row, Typography } from 'antd';
 import { useAuth } from 'auth';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -23,6 +22,8 @@ const { Title, Text } = Typography;
 const Landing = () => {
   const [logged] = useAuth();
   const navigate = useNavigate();
+  const speed = 10;
+  const refNumber = useRef();
 
   useEffect(() => {
     logged && navigate('/micro-jobs');
@@ -144,7 +145,7 @@ const Landing = () => {
             </Row>
             <Row>
               <Col xs={{ span: 22, offset: 2 }} lg={{ span: 12, offset: 2 }}>
-                <Link to="/sign-up">
+                <Link to="/sign-in">
                   <Button
                     size="large"
                     className="landing_btn"
@@ -153,7 +154,7 @@ const Landing = () => {
                     {LANDING_BTN_TEXT_POST}
                   </Button>
                 </Link>
-                <Link to="/sign-up">
+                <Link to="/sign-in">
                   <Button size="large" className="landing_btn btn_white">
                     {LANDING_BTN_TEXT_FIND}
                   </Button>
@@ -190,7 +191,7 @@ const Landing = () => {
               align="middle"
             >
               <Col xs={{ span: 24 }} lg={{ span: 12 }}>
-                <Link to="/sign-up">
+                <Link to="/sign-in">
                   <Button size="large" className="landing_btn">
                     {LANDING_BTN_TEXT_POST}
                   </Button>
@@ -548,7 +549,7 @@ const Landing = () => {
                 lg={{ span: 12 }}
                 style={{ textAlign: 'center' }}
               >
-                <Link to="/sign-up">
+                <Link to="/sign-in">
                   <Button
                     size="large"
                     className="landing_btn"
@@ -557,7 +558,7 @@ const Landing = () => {
                     {LANDING_BTN_TEXT_POST}
                   </Button>
                 </Link>
-                <Link to="/sign-up">
+                <Link to="/sign-in">
                   <Button size="large" className="landing_btn btn_white">
                     {LANDING_BTN_TEXT_FIND}
                   </Button>
