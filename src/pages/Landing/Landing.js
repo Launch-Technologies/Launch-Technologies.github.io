@@ -28,6 +28,55 @@ const Landing = () => {
     logged && navigate('/micro-jobs');
   }, [logged]);
 
+  const incEltNbr = (id) => {
+    let elt = document.getElementById(id);
+    const startDate = new Date('August 15, 2022');
+    const today = new Date();
+    const endNbr = 100 + parseInt((today - startDate) / 86400000);
+    incNbrRec(0, endNbr, elt);
+  };
+
+  const incNbrRec = (i, endNbr, elt) => {
+    if (i <= endNbr) {
+      elt.innerHTML = i;
+      setTimeout(function () {
+        incNbrRec(i + 1, endNbr, elt);
+      }, speed);
+    }
+  };
+
+  const incNbr = () => {
+    incEltNbr('nbr');
+    refNumber.current = `<div id="nbr" className="student_number">
+        100
+      </div>`;
+  };
+
+  useEffect(() => {
+    const box = document.querySelector('#nbr');
+    function isInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <=
+          (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+
+    document.addEventListener(
+      'scroll',
+      function () {
+        if (refNumber.current.innerHTML == 0) {
+          isInViewport(box) && incNbr();
+        }
+      },
+      { passive: true }
+    );
+  }, []);
+
   return (
     <Layout>
       <Header className="header">
@@ -419,7 +468,9 @@ const Landing = () => {
             >
               <Col>
                 <div className="landing_btn student_btn">
-                  <div className="student_number">100 </div>
+                  <div id="nbr" className="student_number" ref={refNumber}>
+                    0
+                  </div>
                 </div>
               </Col>
             </Row>
