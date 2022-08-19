@@ -4,6 +4,8 @@
   height: 31px;
   font-size: 1.3em;
   background: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  letter-spacing: -.5px;
 }
 
 .ant-row-rtl .logo {

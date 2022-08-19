@@ -90,11 +90,6 @@ const MicroJobDetails = () => {
           <div id="section_detail">
             <SectionDetails title="Brief" microjob={microjob} key_="brief" />
             <SectionDetails
-              title="Badges Required"
-              microjob={microjob}
-              key_="badges"
-            />
-            <SectionDetails
               title="Renumeration"
               microjob={microjob}
               key_="remuneration"

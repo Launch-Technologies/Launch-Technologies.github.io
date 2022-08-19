@@ -6,14 +6,15 @@ import ProfileTab from 'components/Tab/ProfileTab';
 import './Dashboard.scoped.css';
 
 const { Header, Content, Sider } = Layout;
-const items1 = ['Microjobs', 'Events'].map((key) => ({
-  key,
-  label: `${key}`,
-}));
+const topMenuItems = [{ id: 1, label: 'Jobs', link: '/micro-jobs' }].map(
+  (item) => ({
+    key: item.id,
+    label: <Link to={item.link}>{item.label}</Link>,
+  })
+);
 const items2 = [LaptopOutlined].map((icon, index) => {
   return {
     key: `Jobs`,
-    // icon: React.createElement(icon),
     label: `Jobs`,
     children: ['Progress Tracker', 'Submissions'].map((_, j) => {
       const subKey = index * 4 + j + 1;
@@ -35,8 +36,8 @@ const Dashboard = ({ children }) => (
         theme="light"
         className="top-menu"
         mode="horizontal"
-        defaultSelectedKeys={['2']}
-        items={items1}
+        selectedKeys={['1']}
+        items={topMenuItems}
       />
       <span className="user_header">
         <ProfileTab />
@@ -47,10 +48,10 @@ const Dashboard = ({ children }) => (
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
-          console.log('🚀 ~ broken', broken);
+          // console.log('🚀 ~ broken', broken);
         }}
         onCollapse={(collapsed, type) => {
-          console.log('🚀 ~ collapsed, typ', collapsed, type);
+          // console.log('🚀 ~ collapsed, typ', collapsed, type);
         }}
         width={250}
         className="sider"
@@ -60,8 +61,7 @@ const Dashboard = ({ children }) => (
         <Menu
           className="sider_background"
           mode="inline"
-          // theme='dark'
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['2']}
           defaultOpenKeys={['Jobs']}
           style={{
             height: '100%',
