@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Button, Card, Col, Layout, Row, Typography } from 'antd';
-import { useAuth } from 'auth';
+import { Button, Col, Layout, Row, Typography } from 'antd';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import {
   LANDING_BTN_TEXT_FIND,
   LANDING_BTN_TEXT_POST,
@@ -22,8 +20,6 @@ const { Header, Content } = Layout;
 const { Title, Text } = Typography;
 
 const Landing = () => {
-  const [logged] = useAuth();
-  const navigate = useNavigate();
   const speed = 10;
   const refNumber = useRef();
 
@@ -73,12 +69,13 @@ const Landing = () => {
     document.addEventListener(
       'scroll',
       function () {
-        if ((refNumber.current && refNumber.current.innerHTML) == 0) {
+        if ((refNumber.current && refNumber.current.innerHTML) === 0) {
           isInViewport(box) && incNbr();
         }
       },
       { passive: true }
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const Talents = () => {
