@@ -14,7 +14,9 @@ import {
   LANDING_TITLE,
   LANDING_TITLE_BRIEF,
 } from 'data/strings';
+import { TALENTS } from 'data/talents';
 import './Landing.scoped.css';
+import Talent from './Talent';
 
 const { Header, Content } = Layout;
 const { Title, Text } = Typography;
@@ -78,6 +80,12 @@ const Landing = () => {
       { passive: true }
     );
   }, []);
+
+  const Talents = () => {
+    return TALENTS.map((e) => {
+      return <Talent key={e.id} {...e} />;
+    });
+  };
 
   return (
     <Layout>
@@ -330,118 +338,7 @@ const Landing = () => {
               justify="space-evenly"
               align="middle"
             >
-              <Col
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                lg={{ span: 8 }}
-                xl={{ span: 6 }}
-              >
-                <Card
-                  hoverable
-                  className="card_talent"
-                  cover={
-                    <img
-                      className="img_card_talent"
-                      alt="example"
-                      src="https://s3-alpha-sig.figma.com/img/dbde/eeac/16cc041a6670ebd271437f44536034a7?Expires=1661731200&Signature=fN7lA1nDxxPs9mJE25b0~D72C34V1EwIGYP80zeUuk56sPgMRB52dNTfbiwURghpIVdYoIlV0uc8XSk4b1C7johc8Y1y2uX1COQ7wEb0wTOqCIKvPPFFGqZg7CnDW61JB6U99kjvgy-9IrRFbmwre4NVsCXCqsgnLzO3DKjeRNtpbbEuPIikmyKkEyanpinKf14IRjUdKpdiw0Jij0XAfyT3JEgTUvQ5yKqDXnx4fFm09CYZJvqygx4xMFTXpQWsYwgNOBPMdG2pjksQOUA~i94pUeVLudY5v8za7EUJeSfK64knmdx6uvvfXaEr6vsb7gNisUyFAmKl7alYmFgEkg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    />
-                  }
-                >
-                  <div>
-                    <p className="talent_name">JK Rowling</p>
-                    <p className="talent_job">Author and Philanthropist </p>
-                    <p className="talent_desc">
-                      JK is the author of the Harry Potter fantasy series, which
-                      won multiple awards and sold over 500 million copies,
-                      becoming the best-selling book series in history.
-                    </p>
-                  </div>
-                </Card>
-              </Col>
-              <Col
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                lg={{ span: 8 }}
-                xl={{ span: 6 }}
-              >
-                <Card
-                  hoverable
-                  className="card_talent"
-                  cover={
-                    <img
-                      className="img_card_talent"
-                      alt="example"
-                      src="https://s3-alpha-sig.figma.com/img/dbde/eeac/16cc041a6670ebd271437f44536034a7?Expires=1661731200&Signature=fN7lA1nDxxPs9mJE25b0~D72C34V1EwIGYP80zeUuk56sPgMRB52dNTfbiwURghpIVdYoIlV0uc8XSk4b1C7johc8Y1y2uX1COQ7wEb0wTOqCIKvPPFFGqZg7CnDW61JB6U99kjvgy-9IrRFbmwre4NVsCXCqsgnLzO3DKjeRNtpbbEuPIikmyKkEyanpinKf14IRjUdKpdiw0Jij0XAfyT3JEgTUvQ5yKqDXnx4fFm09CYZJvqygx4xMFTXpQWsYwgNOBPMdG2pjksQOUA~i94pUeVLudY5v8za7EUJeSfK64knmdx6uvvfXaEr6vsb7gNisUyFAmKl7alYmFgEkg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    />
-                  }
-                >
-                  <div>
-                    <p className="talent_name">JK Rowling</p>
-                    <p className="talent_job">Author and Philanthropist </p>
-                    <p className="talent_desc">
-                      JK is the author of the Harry Potter fantasy series, which
-                      won multiple awards and sold over 500 million copies,
-                      becoming the best-selling book series in history.
-                    </p>
-                  </div>
-                </Card>
-              </Col>
-              <Col
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                lg={{ span: 8 }}
-                xl={{ span: 6 }}
-              >
-                <Card
-                  hoverable
-                  className="card_talent"
-                  cover={
-                    <img
-                      className="img_card_talent"
-                      alt="example"
-                      src="https://s3-alpha-sig.figma.com/img/dbde/eeac/16cc041a6670ebd271437f44536034a7?Expires=1661731200&Signature=fN7lA1nDxxPs9mJE25b0~D72C34V1EwIGYP80zeUuk56sPgMRB52dNTfbiwURghpIVdYoIlV0uc8XSk4b1C7johc8Y1y2uX1COQ7wEb0wTOqCIKvPPFFGqZg7CnDW61JB6U99kjvgy-9IrRFbmwre4NVsCXCqsgnLzO3DKjeRNtpbbEuPIikmyKkEyanpinKf14IRjUdKpdiw0Jij0XAfyT3JEgTUvQ5yKqDXnx4fFm09CYZJvqygx4xMFTXpQWsYwgNOBPMdG2pjksQOUA~i94pUeVLudY5v8za7EUJeSfK64knmdx6uvvfXaEr6vsb7gNisUyFAmKl7alYmFgEkg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    />
-                  }
-                >
-                  <div>
-                    <p className="talent_name">JK Rowling</p>
-                    <p className="talent_job">Author and Philanthropist </p>
-                    <p className="talent_desc">
-                      JK is the author of the Harry Potter fantasy series, which
-                      won multiple awards and sold over 500 million copies,
-                      becoming the best-selling book series in history.
-                    </p>
-                  </div>
-                </Card>
-              </Col>
-              <Col
-                xs={{ span: 24 }}
-                sm={{ span: 12 }}
-                lg={{ span: 8 }}
-                xl={{ span: 6 }}
-              >
-                <Card
-                  hoverable
-                  className="card_talent"
-                  cover={
-                    <img
-                      className="img_card_talent"
-                      alt="example"
-                      src="https://s3-alpha-sig.figma.com/img/dbde/eeac/16cc041a6670ebd271437f44536034a7?Expires=1661731200&Signature=fN7lA1nDxxPs9mJE25b0~D72C34V1EwIGYP80zeUuk56sPgMRB52dNTfbiwURghpIVdYoIlV0uc8XSk4b1C7johc8Y1y2uX1COQ7wEb0wTOqCIKvPPFFGqZg7CnDW61JB6U99kjvgy-9IrRFbmwre4NVsCXCqsgnLzO3DKjeRNtpbbEuPIikmyKkEyanpinKf14IRjUdKpdiw0Jij0XAfyT3JEgTUvQ5yKqDXnx4fFm09CYZJvqygx4xMFTXpQWsYwgNOBPMdG2pjksQOUA~i94pUeVLudY5v8za7EUJeSfK64knmdx6uvvfXaEr6vsb7gNisUyFAmKl7alYmFgEkg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
-                    />
-                  }
-                >
-                  <div>
-                    <p className="talent_name">JK Rowling</p>
-                    <p className="talent_job">Author and Philanthropist </p>
-                    <p className="talent_desc">
-                      JK is the author of the Harry Potter fantasy series, which
-                      won multiple awards and sold over 500 million copies,
-                      becoming the best-selling book series in history.
-                    </p>
-                  </div>
-                </Card>
-              </Col>
+              {Talents()}
             </Row>
           </div>
         </Content>
