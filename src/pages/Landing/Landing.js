@@ -69,7 +69,7 @@ const Landing = () => {
     document.addEventListener(
       'scroll',
       function () {
-        if ((refNumber.current && refNumber.current.innerHTML) === 0) {
+        if (parseInt(refNumber.current && refNumber.current.innerHTML) === 0) {
           isInViewport(box) && incNbr();
         }
       },
