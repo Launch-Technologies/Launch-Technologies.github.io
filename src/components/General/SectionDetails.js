@@ -41,7 +41,7 @@ const SectionDetails = ({ title, microjob, key_ }) => {
                 className="badges_logo"
                 // TODO fix env set it on github pages env
                 // src={process.env.REACT_APP_API + e.image}
-                src={'https://dev.joblaunch.co/api' + e.image}
+                src={process.env.REACT_APP_API + e.image}
                 alt={e.name}
               />
               <br />
@@ -67,10 +67,7 @@ const SectionDetails = ({ title, microjob, key_ }) => {
               <br />
               {/* TODO fix env set it on github pages env */}
               {/* <a target="_blank" href={process.env.REACT_APP_API + e.file_path}> */}
-              <a
-                target="_blank"
-                href={'https://dev.joblaunch.co/api' + e.file_path}
-              >
+              <a target="_blank" href={process.env.REACT_APP_API + e.file_path}>
                 Download
               </a>
             </Col>

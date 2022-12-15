@@ -43,10 +43,11 @@ const MicroJobDetails = () => {
                   ? setcoverPhoto(
                       // TODO fix env set it on github pages env
                       // process.env.REACT_APP_API + microjob_.cover_photo
-                      'https://dev.joblaunch.co/api' + microjob_.cover_photo
+                      process.env.REACT_APP_API + microjob_.cover_photo
                     )
                   : setcoverPhoto(
-                      'https://app.joblaunch.co/assets/img/Cohort%20UIUX.png'
+                      process.env.REACT_APP_PUBLIC_URL +
+                        '/assets/img/Cohort%20UIUX.png'
                     );
               });
           });

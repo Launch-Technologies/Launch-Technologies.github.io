@@ -3,12 +3,13 @@ import { Form, Select } from 'antd';
 import { NewMJContext } from 'context/NewMJProvider';
 
 const SelectBadges = ({ form }) => {
-  const { skills, setSelectedSkill, fetchSkills } = useContext(NewMJContext);
+  const { skills, setSelectedSkill, fetchBadgeSkills } =
+    useContext(NewMJContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
     inputRef.current.focus();
-    fetchSkills();
+    fetchBadgeSkills();
   }, []);
 
   const onChangeInput = (e) => {

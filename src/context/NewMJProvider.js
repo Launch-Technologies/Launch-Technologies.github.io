@@ -13,7 +13,7 @@ const NewMicroJobContext = ({ children }) => {
   const initialState = {
     forms: fd,
     skills: [],
-    selected_skills: [],
+    selected_badge_skills: [],
     cover_photo: null,
     remuneration: '',
     expectations: '',
@@ -36,8 +36,8 @@ const NewMicroJobContext = ({ children }) => {
     });
   };
 
-  const fetchSkills = async () => {
-    let response = await badgeService.getSkills();
+  const fetchBadgeSkills = async () => {
+    let response = await badgeService.getBadgeSkills();
     dispatch({
       type: 'GET_SKILLS',
       payload: response,
@@ -64,15 +64,24 @@ const NewMicroJobContext = ({ children }) => {
     });
   };
 
+  const postMicroJob = (data) => {
+    // TODO call post api here
+    dispatch({
+      type: 'POST_MICROJOB',
+      payload: data,
+    });
+  };
+
   return (
     <NewMJContext.Provider
       value={{
         ...state,
         setFieldValue,
-        fetchSkills,
+        fetchBadgeSkills,
         resetForm,
         setSelectedSkill,
         setRelevantFiles,
+        postMicroJob,
       }}
     >
       {children}

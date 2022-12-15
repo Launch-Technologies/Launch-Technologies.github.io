@@ -37,7 +37,7 @@ const MJReducer = (state, action) => {
       return {
         ...state,
         forms: newFd,
-        selected_skills: [],
+        selected_badge_skills: [],
         upload_relevant_files: [],
       };
 
@@ -50,7 +50,7 @@ const MJReducer = (state, action) => {
     case 'SET_SKILLS':
       return {
         ...state,
-        selected_skills: action.payload,
+        selected_badge_skills: action.payload,
       };
 
     case 'SET_RELEVANT_FILES':

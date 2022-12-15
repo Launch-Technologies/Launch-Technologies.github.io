@@ -9,15 +9,15 @@ import UploadPhoto from './UploadPhoto';
 import UploadRelFiles from './UploadRelFiles';
 
 let title = {
-  1: 'Write a Name of Task',
+  1: 'Write a Name of Job',
   2: 'Upload a Cover Photo',
   3: 'Write a Brief',
-  4: 'Select Badges',
+  4: 'Select Badge Skill',
   5: 'Write a Renumeration',
   6: 'Write a Expectation',
   7: 'Write a Career Prospect',
   8: 'Write a Checkpoint',
-  9: 'Upload Relevant Files',
+  9: 'Upload Relevant Images',
 };
 const NewForms = ({ order }) => {
   switch (order) {

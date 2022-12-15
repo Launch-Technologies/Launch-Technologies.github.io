@@ -15,11 +15,12 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
     resetForm,
     forms,
     setFieldValue,
-    selected_skills,
+    selected_badge_skills,
     upload_relevant_files,
   } = useContext(NewMJContext);
   const microjobService = new MicroJobService();
   const [order, setorder] = useState(1);
+  const formsCount = Object.keys(title).length + 1;
 
   useEffect(() => {
     setFieldValue('company_id', userData.id);
@@ -57,10 +58,10 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
         const res = microjobService.postMicroJob(forms);
         res.then((e) => {
           if (e.status == 'Ok') {
-            selected_skills.map((f) => {
-              microjobService.postMicroJobSkill({
+            selected_badge_skills.map((badge_skill_id) => {
+              microjobService.postMicroJobBadgeSkill({
                 micro_job_id: e.data.id,
-                skill_id: f,
+                badge_skill_id,
               });
             });
 
@@ -97,10 +98,10 @@ const NewMicroJobModal = ({ visible, setshowForm }) => {
       closable={true}
       visible={visible}
       title={title[order]}
-      okText={order === 9 ? 'Finish' : 'Next'}
+      okText={order === formsCount ? 'Finish' : 'Next'}
       cancelText={order === 1 ? 'Close' : 'Previous'}
       onCancel={order === 1 ? onCancel : onPrevious}
-      onOk={order === 9 ? onFinish : onNext}
+      onOk={order === formsCount ? onFinish : onNext}
       width={500}
     >
       <NewForms order={order} />

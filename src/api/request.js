@@ -3,7 +3,7 @@ import { getToken, logout, updateUserTokenOnly } from '../auth';
 
 // TODO fix env set it on github pages env
 // const baseURL = process.env.REACT_APP_API;
-const baseURL = 'https://dev.joblaunch.co/api';
+const baseURL = process.env.REACT_APP_API;
 
 const refreshToken = function () {
   const token = getToken();

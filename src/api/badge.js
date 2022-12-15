@@ -11,7 +11,7 @@ class BadgeService extends CrudApi {
     return result.data;
   }
 
-  async getBadgeSkill(skill_id) {
+  async getBadgeSkills(skill_id) {
     let result = await this.get(`/badge-skills`, { skill_id });
     return result.data;
   }
